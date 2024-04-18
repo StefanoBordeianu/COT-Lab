@@ -478,13 +478,13 @@ class WhileStat(Stat):
 
 
 class ForStat(Stat):  # incomplete
-    def __init__(self, parent=None, var_name=None,init=None, cond=None, step=None, body=None, symtab=None):
+    def __init__(self, parent=None, assign=None, cond=None, step=None, body=None, symtab=None):
         super().__init__(parent, [], symtab)
-        self.init = init
+        self.assign = assign
         self.cond = cond
         self.step = step
         self.body = body
-        self.init.parent = self
+        self.assign.parent = self
         self.cond.parent = self
         self.step.parent = self
         self.body.parent = self
@@ -495,7 +495,6 @@ class ForStat(Stat):  # incomplete
         exit_stat = EmptyStat(self.parent, symtab=self.symtab)
         exit_stat.set_label(exit_label)
         self.cond.set_label(entry_label)
-        self.AssignStat(target=ind_var, expr=init, symtab=symtab)
         
 
 class AssignStat(Stat):

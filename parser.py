@@ -143,6 +143,7 @@ class Parser:
         elif self.accept('callsym'):
             self.expect('ident')
             return ir.CallStat(call_expr=ir.CallExpr(function=symtab.find(self.value), symtab=symtab), symtab=symtab)
+
         elif self.accept('beginsym'):
             statement_list = ir.StatList(symtab=symtab)
             statement_list.append(self.statement(symtab))
@@ -151,6 +152,7 @@ class Parser:
             self.expect('endsym')
             statement_list.print_content()
             return statement_list
+
         elif self.accept('ifsym'):
             cond = self.condition(symtab)
             self.expect('thensym')
@@ -159,6 +161,7 @@ class Parser:
             if self.accept('elsesym'):
                 els = self.statement(symtab)
             return ir.IfStat(cond=cond, thenpart=then, elsepart=els, symtab=symtab)
+
         elif self.accept('whilesym'):
             cond = self.condition(symtab)
             self.expect('dosym')
@@ -167,21 +170,23 @@ class Parser:
 
         
         elif self.accept('forsym'):
-            self.expect('ident')
-            var_name = self.value
+            target = symtab.find(self.value)
+            offset = self.array_offset(symtab)            
             self.expect('comma')
-            start = self.expression(symtab)
+            start = step = self.expression(symtab)
+            assign = ir.AssignStat(target=target, offset=offset, expr=start, symtab=symtab)
             self.expect('comma')
             stop = self.condition(symtab)
             self.expect('comma')
             step = self.expression(symtab)
             self.expect('dosym')
             body = self.statement(symtab)
-            return ir.ForStat(cond=stop, var_name=var_name, step=step, init=start, symtab=symtab)
+            return ir.ForStat(assign=assign, step=step, cond=cond, body=body, symtab=symtab)
 
         elif self.accept('print'):
             exp = self.expression(symtab)
             return ir.PrintStat(exp=exp, symtab=symtab)
+
         elif self.accept('read'):
             self.expect('ident')
             target = symtab.find(self.value)
