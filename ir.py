@@ -480,10 +480,10 @@ class WhileStat(Stat):
 class ForStat(Stat):  # incomplete
     def __init__(self, parent=None, assign=None, cond=None, step=None, body=None, symtab=None):
         super().__init__(parent, [], symtab)
-        self.assign = assign
         self.cond = cond
         self.step = step
         self.body = body
+        self.assign = assign
         self.assign.parent = self
         self.cond.parent = self
         self.step.parent = self
@@ -495,6 +495,10 @@ class ForStat(Stat):  # incomplete
         exit_stat = EmptyStat(self.parent, symtab=self.symtab)
         exit_stat.set_label(exit_label)
         self.cond.set_label(entry_label)
+        branch = BranchStat(None,self.cond.destination(),exit_label,self.symtab,negcond=True)
+        loop = BranchStat(None,None, entry_label, self.symtab)
+        stat_list = StatList(self.parent, [self.assign, self.cond, branch, self.body, self.step, loop, exit_stat], self.symtab)
+        return self.parent.replace(self, stat_list)
         
 
 class AssignStat(Stat):
