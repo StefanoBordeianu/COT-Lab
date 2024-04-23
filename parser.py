@@ -171,25 +171,19 @@ class Parser:
         
         elif self.accept('forsym'):
             self.accept('ident')
-            target = symtab.find(self.value)
-            offset = self.array_offset(symtab)            
+            target = symtab.find(self.value)     
             self.expect('comma')
-            start = step = self.expression(symtab)
-
-            assign = ir.AssignStat(target=target, offset=offset, expr=start, symtab=symtab)
+            start_exp = self.expression(symtab)
             if self.accept('downtosym'): 
                 op = 'grt'
             elif self.expect('uptosym'):
                 op = 'lss'
-            expr = self.expression(symtab)
-            var = ir.Var(var=target, symtab=symtab)
-            cond = ir.BinExpr(children=[op, var, expr], symtab=symtab)
+            cond = self.expression(symtab)
             self.expect('comma')
             step_exp = self.expression(symtab)
-            step = ir.AssignStat(target=target, offset=offset, expr=step_exp, symtab=symtab)
             self.expect('dosym')
             body = self.statement(symtab)
-            return ir.ForStat(assign=assign, step=step, cond=cond, body=body, symtab=symtab)
+            return ir.ForStat(target=target, start_exp=start_exp, op=op, step_exp=step_exp, cond_expr=cond, body=body, symtab=symtab)
 
         elif self.accept('print'):
             exp = self.expression(symtab)

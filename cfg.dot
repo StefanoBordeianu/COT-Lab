@@ -1,26 +1,26 @@
 digraph G {
-140556239137392 [label="BB140556239137392{\nreg int t0 <- 1\nglobal int x; _g_x: def byte 4 <- reg int t0\n<class 'ir.AssignStat'> 140556239136912 {
-parent = 140556240935552
+140456234003296 [label="BB140456234003296{\nreg int t0 <- 1\nglobal int x; _g_x: def byte 4 <- reg int t0\n<class 'ir.AssignStat'> 140456234003728 {
+parent = 140456233645920
 	offset: 	None
-	expr: 	<class 'ir.Const'> 140556240935504 {
-	parent = 140556239136912
+	symbol: 	global int i; _g_i: def byte 4
+	expr: 	<class 'ir.Const'> 140456233645872 {
+	parent = 140456234003728
 		value: 	0
 		symbol: 	None
 	}
-	symbol: 	global int i; _g_i: def byte 4
 }}"];
-140556239137392 -> 140556239136960 [label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
-140556239136960 [label="BB140556239136960{\n[auto label label1]\nlabel1: <class 'ir.EmptyStat'> 140556240937616 {
-parent = 140556240935552
-}\nreg int t1 <- global int i; _g_i: def byte 4\nreg int t2 <- 10\nreg int32_t t3 <- reg int t1 lss reg int t2\nbranch on not reg int32_t t3 to auto label label2}"];
-140556239136960 -> 140556239137152 [label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
-140556239136960 -> 140556239137248 [style=dashed,label="set()"];
-140556239137152 [label="BB140556239137152{\nreg int t7 <- global int x; _g_x: def byte 4\nreg int t8 <- 1\nreg int32_t t9 <- reg int t7 plus reg int t8\nglobal int x; _g_x: def byte 4 <- reg int32_t t9\nreg int t4 <- global int i; _g_i: def byte 4\nreg int t5 <- 1\nreg int32_t t6 <- reg int t4 plus reg int t5\nglobal int i; _g_i: def byte 4 <- reg int32_t t6\nbranch  to auto label label1}"];
-140556239137152 -> 140556239136960 [style=dashed,label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
-140556239137248 [label="BB140556239137248{\n[auto label label2]\nlabel2: <class 'ir.EmptyStat'> 140556239140944 {
-parent = 140556240935552
+140456234003296 -> 140456234001856 [label="{global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
+140456234001856 [label="BB140456234001856{\n[auto label label1]\nlabel1: <class 'ir.EmptyStat'> 140456233646688 {
+parent = 140456233645920
+}\nreg int t7 <- global int i; _g_i: def byte 4\nreg int t8 <- 10\nreg int32_t t9 <- reg int t7 lss reg int t8\nbranch on not reg int32_t t9 to auto label label2}"];
+140456234001856 -> 140456234002960 [label="{global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
+140456234001856 -> 140456234003344 [style=dashed,label="set()"];
+140456234002960 [label="BB140456234002960{\nreg int t4 <- global int x; _g_x: def byte 4\nreg int t5 <- 1\nreg int32_t t6 <- reg int t4 plus reg int t5\nglobal int x; _g_x: def byte 4 <- reg int32_t t6\nreg int t1 <- global int i; _g_i: def byte 4\nreg int t2 <- 1\nreg int32_t t3 <- reg int t1 plus reg int t2\nglobal int i; _g_i: def byte 4 <- reg int32_t t3\nbranch  to auto label label1}"];
+140456234002960 -> 140456234001856 [style=dashed,label="{global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
+140456234003344 [label="BB140456234003344{\n[auto label label2]\nlabel2: <class 'ir.EmptyStat'> 140456233996288 {
+parent = 140456233645920
 }}"];
-140556239137248 -> exit140556240538288 [label="set()"];
+140456234003344 -> exit140456233895024 [label="set()"];
 main [shape=box];
-main -> 140556239137392 [label="set()"];
+main -> 140456234003296 [label="set()"];
 }

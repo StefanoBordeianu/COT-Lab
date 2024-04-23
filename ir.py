@@ -478,13 +478,18 @@ class WhileStat(Stat):
 
 
 class ForStat(Stat):  # incomplete
-    def __init__(self, parent=None, assign=None, cond=None, step=None, body=None, symtab=None):
+    def __init__(self,target=None, parent=None, op=None, start_exp=None, cond_expr=None, step_exp=None, body=None, symtab=None):
         super().__init__(parent, [], symtab)
+
+        start_assign = AssignStat(target=target, expr=start_exp, symtab=symtab)
+        var = Var(var=target, symtab=symtab)
+        cond = BinExpr(children=[op, var, cond_expr], symtab=symtab)
+        step = AssignStat(target=target, expr=step_exp, symtab=symtab)
         self.cond = cond
         self.step = step
         self.body = body
-        self.assign = assign
-        self.assign.parent = self
+        self.start_assign = start_assign
+        self.start_assign.parent = self
         self.cond.parent = self
         self.step.parent = self
         self.body.parent = self
@@ -497,7 +502,7 @@ class ForStat(Stat):  # incomplete
         self.cond.set_label(entry_label)
         branch = BranchStat(None,self.cond.destination(),exit_label,self.symtab,negcond=True)
         loop = BranchStat(None,None, entry_label, self.symtab)
-        stat_list = StatList(self.parent, [self.assign, self.cond, branch, self.body, self.step, loop, exit_stat], self.symtab)
+        stat_list = StatList(self.parent, [self.start_assign, self.cond, branch, self.body, self.step, loop, exit_stat], self.symtab)
         return self.parent.replace(self, stat_list)
         
 
