@@ -158,8 +158,11 @@ BEGIN
     x := 1;
 
     FOR i, 0 upto 10, i+1 do begin
-        x := x+1
-    end
+        x := x+1;
+        print x
+    end;
+    print x;
+    print i
 END.'''
 
 
