@@ -1,0 +1,30 @@
+		cond: 	<class 'ir.BinExpr'> 139663623328944 {
+			parent = 139663623328704
+				children:
+				'lss'
+				<class 'ir.Var'> 139663623328848 {
+				parent = 139663623328944
+					symbol: 	global int i
+				}
+				<class 'ir.Var'> 139663623327696 {
+				parent = 139663623328944
+					symbol: 	global int y
+				}
+			}
+
+
+
+			cond: 	<class 'ir.BinExpr'> 140061831582896 {
+			parent = 140061831582656
+				children:
+				'lss'
+				<class 'ir.Var'> 140061831582800 {
+				parent = 140061831582896
+					symbol: 	global int i
+				}
+				<class 'ir.Const'> 140061831581648 {
+				parent = 140061831582896
+					value: 	10
+					symbol: 	None
+				}
+			}

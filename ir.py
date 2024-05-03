@@ -269,6 +269,12 @@ class Const(IRNode):
         self.value = value
         self.symbol = symb
 
+    def is_const(self):
+        return True
+    
+    def get_const_value(self):
+        return self.value
+
     def lower(self):
         if self.symbol is None:
             new = new_temporary(self.symtab, TYPENAMES['int'])
@@ -285,6 +291,9 @@ class Var(IRNode):
     def __init__(self, parent=None, var=None, symtab=None):
         super().__init__(parent, None, symtab)
         self.symbol = var
+
+    def is_const(self):
+        return False
 
     def collect_uses(self):
         return [self.symbol]
@@ -349,6 +358,18 @@ class BinExpr(Expr):
     def get_operands(self):
         return self.children[1:]
 
+    def is_const(self):
+        return self.children[1].is_const() and self.children[2].is_const()
+
+    def get_const_value(self):
+        if(self.children[0] is 'minus'):
+            return self.children[1].get_const_value() - self.children[2].get_const_value()
+        if(self.children[0] is 'times'):
+            return self.children[1].get_const_value() * self.children[2].get_const_value()
+        if(self.children[0] is 'slash'):
+            return self.children[1].get_const_value() / self.children[2].get_const_value()
+        return self.children[1].get_const_value() + self.children[2].get_const_value()
+
     def lower(self):
         srca = self.children[1].destination()
         srcb = self.children[2].destination()
@@ -369,6 +390,14 @@ class BinExpr(Expr):
 class UnExpr(Expr):
     def get_operand(self):
         return self.children[1]
+
+    def is_const(self):
+        return self.children[1].is_const()
+
+    def get_const_value(self):
+        if(self.children[0] is 'minus'):
+            return (-self.children[1].get_const_value())
+        return self.children[1].get_const_value()
 
     def lower(self):
         src = self.children[1].destination()
@@ -494,6 +523,37 @@ class ForStat(Stat):  # incomplete
         self.cond.parent = self
         self.step.parent = self
         self.body.parent = self
+
+        #self.unroll(2)
+
+    def unroll(self, unroll_factor=None):
+        #get stop value
+        
+        cond_operand = self.cond.get_operands()[1]
+        is_constant = cond_operand.is_const()
+
+        if(is_constant):
+            print('WOOOOOOOOOOO CONSTN')
+        else:
+            print('BOOOOOOOOOO NOT CONST')
+            return
+
+        end_value = cond_operand.get_const_value()
+        print('CONSTANT END VALUE = %d' %end_value)
+
+        numb_of_unrolls = end_value/unroll_factor
+        body_copy = self.body
+        new_body = StatList(self,[body_copy],self.symtab)
+
+        #multiply body
+        for i in range(1,unroll_factor):
+            new_body.append(body_copy)
+
+        print('NEW BODY AFTER THE UNROLLING MULTIPLY')
+        print(new_body)
+        self.body = new_body
+        self.body.parent = self        
+
 
     def lower(self):
         entry_label = TYPENAMES['label']()

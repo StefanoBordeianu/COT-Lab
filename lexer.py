@@ -153,9 +153,10 @@ class Lexer:
 
 
 __test_program = '''
-VAR x,i;
+VAR x,i,y;
 BEGIN 
-    x := 1;
+    x := 0;
+    y := 10;
 
     FOR i, 0 upto 10, i+1 do begin
         x := x+1;
