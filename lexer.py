@@ -158,12 +158,10 @@ BEGIN
     x := 0;
     y := 10;
 
-    FOR i, 0 upto 10, i+1 do begin
+    FOR i, 0 upto 11, i+1 do begin
         x := x+1;
         print x
-    end;
-    print x;
-    print i
+    end
 END.'''
 
 

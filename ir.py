@@ -523,32 +523,53 @@ class ForStat(Stat):  # incomplete
         self.cond.parent = self
         self.step.parent = self
         self.body.parent = self
+        self.unroll_remainder_statlist = self.unroll_remainder_statlist = StatList(self,[],self.symtab)
 
-        #self.unroll(2)
+        self.unroll(4)
 
     def unroll(self, unroll_factor=None):
-        #get stop value
-        
+
+        #verify that the condition is constant
         cond_operand = self.cond.get_operands()[1]
         is_constant = cond_operand.is_const()
-
         if(is_constant):
             print('WOOOOOOOOOOO CONSTN')
         else:
             print('BOOOOOOOOOO NOT CONST')
             return
-
         end_value = cond_operand.get_const_value()
         print('CONSTANT END VALUE = %d' %end_value)
 
-        numb_of_unrolls = end_value/unroll_factor
-        body_copy = self.body
-        new_body = StatList(self,[body_copy],self.symtab)
 
+        #verify that the step is constant
+        step = self.step.expr.get_operands()[1]
+        is_constant = step.is_const()
+        if(is_constant):
+            print("STEP CONSTANT")
+        else:
+            print("STEP NOT CONSTANT")
+
+
+        #modify the end value if there is a remainder
+        remainder = end_value%unroll_factor
+        if(remainder is not 0):
+            step_value = step.get_const_value()
+            new_value = end_value-(step_value*remainder)
+            new_end_const = Const(parent=self.cond, value=new_value ,symtab=self.symtab)
+            self.cond.children[2] = new_end_const
+            
         #multiply body
-        for i in range(1,unroll_factor):
+        body_copy = self.body
+        new_body = StatList(self,[],self.symtab)
+        for i in range(unroll_factor):
             new_body.append(body_copy)
+            new_body.append(self.step)
 
+        #add create the remainder statlist
+        for i in range(remainder):
+            self.unroll_remainder_statlist.append(body_copy)
+
+        
         print('NEW BODY AFTER THE UNROLLING MULTIPLY')
         print(new_body)
         self.body = new_body
@@ -563,7 +584,7 @@ class ForStat(Stat):  # incomplete
         self.cond.set_label(entry_label)
         branch = BranchStat(None,self.cond.destination(),exit_label,self.symtab,negcond=True)
         loop = BranchStat(None,None, entry_label, self.symtab)
-        stat_list = StatList(self.parent, [self.start_assign, self.cond, branch, self.body, self.step, loop, exit_stat], self.symtab)
+        stat_list = StatList(self.parent, [self.start_assign, self.cond, branch, self.body, self.step, loop, exit_stat,self.unroll_remainder_statlist], self.symtab)
         return self.parent.replace(self, stat_list)
         
 
