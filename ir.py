@@ -212,6 +212,13 @@ class IRNode:  # abstract
         res += '}'
         return res
 
+    def descendants(self):
+        u = [self] 
+        for c in self.children:
+            u += c.descendants()
+        return u
+    
+
     def navigate(self, action):
         attrs = {'body', 'cond', 'value', 'thenpart', 'elsepart', 'symbol', 'call', 'step', 'expr', 'target', 'defs',
                  'global_symtab', 'local_symtab', 'offset', 'start_assign'} & set(dir(self))
@@ -362,11 +369,11 @@ class BinExpr(Expr):
         return self.children[1].is_const() and self.children[2].is_const()
 
     def get_const_value(self):
-        if(self.children[0] is 'minus'):
+        if(self.children[0] == 'minus'):
             return self.children[1].get_const_value() - self.children[2].get_const_value()
-        if(self.children[0] is 'times'):
+        if(self.children[0] == 'times'):
             return self.children[1].get_const_value() * self.children[2].get_const_value()
-        if(self.children[0] is 'slash'):
+        if(self.children[0] == 'slash'):
             return self.children[1].get_const_value() / self.children[2].get_const_value()
         return self.children[1].get_const_value() + self.children[2].get_const_value()
 
@@ -527,18 +534,26 @@ class ForStat(Stat):  # incomplete
 
         self.unroll(4)
 
-    def unroll(self, unroll_factor=None):
+    def symb_not_modified_in_body(self,symb):
+        statements = self.body.descendants()
+        print("descendants")
+        for s in statements:
+            if isinstance(s, AssignStat):
+                if s.symbol==symb:
+                    return False
+        return True
 
+
+    def unroll(self, unroll_factor=None):
         #verify that the condition is constant
         cond_operand = self.cond.get_operands()[1]
         is_constant = cond_operand.is_const()
         if(is_constant):
-            print('WOOOOOOOOOOO CONSTN')
+            print('END CONSTANT')
         else:
-            print('BOOOOOOOOOO NOT CONST')
+            print('END NOT CONSTANT')
             return
         end_value = cond_operand.get_const_value()
-        print('CONSTANT END VALUE = %d' %end_value)
 
 
         #verify that the step is constant
@@ -548,16 +563,38 @@ class ForStat(Stat):  # incomplete
             print("STEP CONSTANT")
         else:
             print("STEP NOT CONSTANT")
+            return
+        step_value = step.get_const_value()
+
+        #verify that the step is constant
+        start_exp = self.start_assign.expr
+        is_const = start_exp.is_const()
+        if(is_constant):
+            print('START CONSTANT')
+        else:
+            print('START NOT CONSTANT')
+            return
+        start_value = start_exp.get_const_value()
+
+
+        #check if the number of iteration is lower than unroll factor
+        numb_of_iteration = (end_value-start_value)/step_value  
+        if(numb_of_iteration<unroll_factor):
+            unroll_factor = int(numb_of_iteration)
+            remainder = 0
+            
+        print("start %d" %start_value)
+        print("end %d" %end_value)
+        print("step %d" %step_value)
 
 
         #modify the end value if there is a remainder
         remainder = end_value%unroll_factor
-        if(remainder is not 0):
-            step_value = step.get_const_value()
+        if(remainder != 0):
             new_value = end_value-(step_value*remainder)
             new_end_const = Const(parent=self.cond, value=new_value ,symtab=self.symtab)
             self.cond.children[2] = new_end_const
-            
+
         #multiply body
         body_copy = self.body
         new_body = StatList(self,[],self.symtab)
@@ -565,7 +602,7 @@ class ForStat(Stat):  # incomplete
             new_body.append(body_copy)
             new_body.append(self.step)
 
-        #add create the remainder statlist
+        #add the remainder statlist
         for i in range(remainder):
             self.unroll_remainder_statlist.append(body_copy)
 
@@ -573,7 +610,9 @@ class ForStat(Stat):  # incomplete
         print('NEW BODY AFTER THE UNROLLING MULTIPLY')
         print(new_body)
         self.body = new_body
-        self.body.parent = self        
+        self.body.parent = self 
+
+        self.check_variable_not_modified_in_body()       
 
 
     def lower(self):
