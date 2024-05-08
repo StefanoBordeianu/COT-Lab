@@ -155,7 +155,7 @@ __test_program = '''
 VAR x,i;
 BEGIN 
     x := 0;
-
+    
     FOR i, 0 upto 4, i+1 do begin
         x := x+1;
         print x

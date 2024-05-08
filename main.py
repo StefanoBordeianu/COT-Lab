@@ -20,6 +20,15 @@ def compile_program(text):
     res.navigate(print_stat_list)
 
     node_list = get_node_list(res)
+
+    # for n in node_list:
+    #     print(type(n), id(n))
+    #     try:
+    #         n.unroll(2)
+    #     except Exception:
+    #         pass
+
+    node_list = get_node_list(res)
     for n in node_list:
         print(type(n), id(n), '->', type(n.parent), id(n.parent))
     print('\nTotal nodes in IR:', len(node_list), '\n')

@@ -9,63 +9,41 @@ __pl0_start:
 	push {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r11, sp
 	sub sp, sp, #0
-	@ irnode 132744892069152 type <class 'ir.StatList'>
-	mov r7, #0
+	@ irnode 139676188081408 type <class 'ir.StatList'>
+	mov r0, #0
 	ldr r12, .const0
-	str r7, [r12]
-	mov r8, #0
+	str r0, [r12]
+	mov r1, #0
 	ldr r12, .const1
-	str r8, [r12]
+	str r1, [r12]
 label1:
 	@ emptystat
 	ldr r12, .const2
-	ldr r7, [r12]
-	mov r8, #4
-	cmp r7, r8
-	movlt r7, #1
-	movge r7, #0
-	tst r7, r7
+	ldr r2, [r12]
+	mov r3, #4
+	cmp r2, r3
+	movlt r4, #1
+	movge r4, #0
+	tst r4, r4
 	beq label2
 	ldr r12, .const3
-	ldr r3, [r12]
-	mov r4, #1
-	add r5, r3, r4
+	ldr r5, [r12]
+	mov r6, #1
+	add r7, r5, r6
 	ldr r12, .const4
-	str r5, [r12]
+	str r7, [r12]
 	ldr r12, .const5
-	ldr r6, [r12]
+	ldr r8, [r12]
 	push {r0, r1, r2, r3}
-	mov r0, r6
+	mov r0, r8
 	bl __pl0_print
 	pop {r0, r1, r2, r3}
-	@ irnode 132744892044080 type <class 'ir.StatList'>
 	ldr r12, .const6
 	ldr r0, [r12]
 	mov r1, #1
-	add r2, r0, r1
+	add r0, r0, r1
 	ldr r12, .const7
-	str r2, [r12]
-	@ irnode 132744892048736 type <class 'ir.StatList'>
-	ldr r12, .const8
-	ldr r3, [r12]
-	mov r4, #1
-	add r5, r3, r4
-	ldr r12, .const9
-	str r5, [r12]
-	ldr r12, .const10
-	ldr r6, [r12]
-	push {r0, r1, r2, r3}
-	mov r0, r6
-	bl __pl0_print
-	pop {r0, r1, r2, r3}
-	@ irnode 132744892044080 type <class 'ir.StatList'>
-	ldr r12, .const11
-	ldr r0, [r12]
-	mov r1, #1
-	add r2, r0, r1
-	ldr r12, .const12
-	str r2, [r12]
-	@ irnode 132744892069056 type <class 'ir.AssignStat'>
+	str r0, [r12]
 	b label1
 label2:
 	@ emptystat
@@ -87,14 +65,4 @@ label2:
 .const6:
 	.word _g_i
 .const7:
-	.word _g_i
-.const8:
-	.word _g_x
-.const9:
-	.word _g_x
-.const10:
-	.word _g_x
-.const11:
-	.word _g_i
-.const12:
 	.word _g_i

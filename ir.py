@@ -532,7 +532,7 @@ class ForStat(Stat):  # incomplete
         self.body.parent = self
         self.unroll_remainder_statlist = StatList(self,[],self.symtab)
 
-        self.unroll(2)
+        self.strip_mine(2)
 
     # def symb_modified_in_body(self,symb):
     #     statements = self.body.descendants()
@@ -552,12 +552,6 @@ class ForStat(Stat):  # incomplete
         else:
             print('END CONTAINS VARIABLE')
             return
-            # uses = cond_operand.collect_uses()
-            # print(uses)
-            # for u in uses:
-            #     if self.symb_modified_in_body(u):
-            #         print('VARIABLE IS MODIFIED')
-            #         return
         end_value = cond_operand.get_const_value()
 
 
@@ -616,6 +610,57 @@ class ForStat(Stat):  # incomplete
         print(new_body)
         self.body = new_body
         self.body.parent = self 
+
+    def strip_mine(self, strip_factor=None):
+        #verify that the condition is constant
+        cond_operand = self.cond.get_operands()[1]
+        is_constant = cond_operand.is_const()
+        if(is_constant):
+            print('END CONSTANT')
+        else:
+            print('END CONTAINS VARIABLE')
+            return
+        end_value = cond_operand.get_const_value()
+
+        #verify that the step is constant
+        step = self.step.expr.get_operands()[1]
+        is_constant = step.is_const()
+        if(is_constant):
+            print("STEP CONSTANT")
+        else:
+            print("STEP NOT CONSTANT")
+            return
+        step_value = step.get_const_value()
+
+        #verify that the step is constant
+        start_exp = self.start_assign.expr
+        is_const = start_exp.is_const()
+        if(is_constant):
+            print('START CONSTANT')
+        else:
+            print('START NOT CONSTANT')
+            return
+        start_value = start_exp.get_const_value()
+
+
+
+        #create external for loop 
+        
+        #create new induction variable
+        alloct='auto'
+        name = 'tmp_variable_for_strip_mining'
+        type = TYPENAMES['int']
+        new_symb = Symbol(name, type, alloct=alloct)
+        self.symtab.append(Symbol(name, type, alloct=alloct))
+        outer_ind_var = Var(var=new_symb, symtab=self.symtab)
+
+        #create new constant for condition and step
+        outer_step_const = Const(self.parent,strip_factor,self.symtab)
+
+
+        outer_step_exp = BinExpr(self.parent,['plus',outer_ind_var,outer_step_const])
+        #outer_cond = BinExpr(children=['lss', var, cond_expr], symtab=symtab)
+
 
     def lower(self):
         entry_label = TYPENAMES['label']()
