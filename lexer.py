@@ -122,8 +122,7 @@ class Lexer:
 #       print -x
 #    end else begin
 #       print x
-#    end;
-
+#    end;const
 #    x := 1;
 #    WHILE x <= 10 DO
 #    BEGIN
@@ -153,12 +152,11 @@ class Lexer:
 
 
 __test_program = '''
-VAR x,i,y;
+VAR x,i;
 BEGIN 
     x := 0;
-    y := 10;
 
-    FOR i, 0 upto 5, i+2 do begin
+    FOR i, 0 upto 4, i+1 do begin
         x := x+1;
         print x
     end

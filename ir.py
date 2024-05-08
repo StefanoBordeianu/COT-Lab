@@ -221,7 +221,7 @@ class IRNode:  # abstract
 
     def navigate(self, action):
         attrs = {'body', 'cond', 'value', 'thenpart', 'elsepart', 'symbol', 'call', 'step', 'expr', 'target', 'defs',
-                 'global_symtab', 'local_symtab', 'offset', 'start_assign'} & set(dir(self))
+                 'global_symtab', 'local_symtab', 'offset', 'start_assign','unroll_remainder_statlist'} & set(dir(self))
         if 'children' in dir(self) and len(self.children):
             print('navigating children of', type(self), id(self), len(self.children))
             for node in self.children:
@@ -530,19 +530,18 @@ class ForStat(Stat):  # incomplete
         self.cond.parent = self
         self.step.parent = self
         self.body.parent = self
-        self.unroll_remainder_statlist = self.unroll_remainder_statlist = StatList(self,[],self.symtab)
+        self.unroll_remainder_statlist = StatList(self,[],self.symtab)
 
-        self.unroll(4)
+        self.unroll(2)
 
-    def symb_not_modified_in_body(self,symb):
-        statements = self.body.descendants()
-        print("descendants")
-        for s in statements:
-            if isinstance(s, AssignStat):
-                if s.symbol==symb:
-                    return False
-        return True
-
+    # def symb_modified_in_body(self,symb):
+    #     statements = self.body.descendants()
+    #     print("descendants")
+    #     for s in statements:
+    #         if isinstance(s, AssignStat):
+    #             if s.symbol==symb:
+    #                 return True
+    #     return False
 
     def unroll(self, unroll_factor=None):
         #verify that the condition is constant
@@ -551,8 +550,14 @@ class ForStat(Stat):  # incomplete
         if(is_constant):
             print('END CONSTANT')
         else:
-            print('END NOT CONSTANT')
+            print('END CONTAINS VARIABLE')
             return
+            # uses = cond_operand.collect_uses()
+            # print(uses)
+            # for u in uses:
+            #     if self.symb_modified_in_body(u):
+            #         print('VARIABLE IS MODIFIED')
+            #         return
         end_value = cond_operand.get_const_value()
 
 
@@ -611,9 +616,6 @@ class ForStat(Stat):  # incomplete
         print(new_body)
         self.body = new_body
         self.body.parent = self 
-
-        self.check_variable_not_modified_in_body()       
-
 
     def lower(self):
         entry_label = TYPENAMES['label']()
