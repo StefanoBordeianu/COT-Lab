@@ -4,6 +4,7 @@
 
 import lexer
 import parser
+import ir
 from support import *
 from datalayout import *
 from cfg import *
@@ -21,12 +22,12 @@ def compile_program(text):
 
     node_list = get_node_list(res)
 
-    # for n in node_list:
-    #     print(type(n), id(n))
-    #     try:
-    #         n.unroll(2)
-    #     except Exception:
-    #         pass
+    for n in node_list:
+        print(type(n), id(n))
+            
+        if(isinstance(n,ir.ForStat)):
+           n.strip_mine(2)
+
 
     node_list = get_node_list(res)
     for n in node_list:

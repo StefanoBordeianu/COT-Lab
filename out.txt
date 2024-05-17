@@ -1,26 +1,26 @@
-['./main.py']
-start <function Parser.program at 0x7eff0e71fac0>
+['./main.py', 'out.s']
+start <function Parser.program at 0x7fc4e7c50a60>
 getsym: varsym var
-start <function Parser.block at 0x7eff0e71f760>
+start <function Parser.block at 0x7fc4e7c50700>
 accepting constsym == varsym
 accepting varsym == varsym
 getsym: ident x
-start <function Parser.vardef at 0x7eff0e71f9a0>
+start <function Parser.vardef at 0x7fc4e7c50940>
 expecting ident
 accepting ident == ident
 getsym: comma ,
 accepting lspar == comma
 accepting colon == comma
-end <function Parser.vardef at 0x7eff0e71f9a0>
+end <function Parser.vardef at 0x7fc4e7c50940>
 accepting comma == comma
 getsym: ident i
-start <function Parser.vardef at 0x7eff0e71f9a0>
+start <function Parser.vardef at 0x7fc4e7c50940>
 expecting ident
 accepting ident == ident
 getsym: semicolon ;
 accepting lspar == semicolon
 accepting colon == semicolon
-end <function Parser.vardef at 0x7eff0e71f9a0>
+end <function Parser.vardef at 0x7fc4e7c50940>
 accepting comma == semicolon
 expecting semicolon
 accepting semicolon == semicolon
@@ -28,34 +28,34 @@ getsym: beginsym begin
 accepting constsym == beginsym
 accepting varsym == beginsym
 accepting procsym == beginsym
-start <function Parser.statement at 0x7eff0e71f640>
+start <function Parser.statement at 0x7fc4e7c505e0>
 accepting ident == beginsym
 accepting callsym == beginsym
 accepting beginsym == beginsym
 getsym: ident x
-StatList : new 139633926068864
-start <function Parser.statement at 0x7eff0e71f640>
+StatList : new 140483678696496
+start <function Parser.statement at 0x7fc4e7c505e0>
 accepting ident == ident
 getsym: becomes :=
 Looking up x
 Looking up x
 expecting becomes
 accepting becomes == becomes
-getsym: number 1
-start <function Parser.expression at 0x7eff0e71f400>
-start <function Parser.term at 0x7eff0e71f2e0>
-start <function Parser.factor at 0x7eff0e71f1c0>
+getsym: number 0
+start <function Parser.expression at 0x7fc4e7c503a0>
+start <function Parser.term at 0x7fc4e7c50280>
+start <function Parser.factor at 0x7fc4e7c50160>
 accepting ident == number
 accepting number == number
 getsym: semicolon ;
-end <function Parser.factor at 0x7eff0e71f1c0>
-end <function Parser.term at 0x7eff0e71f2e0>
-end <function Parser.expression at 0x7eff0e71f400>
-end <function Parser.statement at 0x7eff0e71f640>
-StatList: appending 139633924253792 of type <class 'ir.AssignStat'> to 139633926068864
+end <function Parser.factor at 0x7fc4e7c50160>
+end <function Parser.term at 0x7fc4e7c50280>
+end <function Parser.expression at 0x7fc4e7c503a0>
+end <function Parser.statement at 0x7fc4e7c505e0>
+StatList: appending 140483678641776 of type <class 'ir.AssignStat'> to 140483678696496
 accepting semicolon == semicolon
 getsym: forsym for
-start <function Parser.statement at 0x7eff0e71f640>
+start <function Parser.statement at 0x7fc4e7c505e0>
 accepting ident == forsym
 accepting callsym == forsym
 accepting beginsym == forsym
@@ -69,59 +69,59 @@ Looking up i
 expecting comma
 accepting comma == comma
 getsym: number 0
-start <function Parser.expression at 0x7eff0e71f400>
-start <function Parser.term at 0x7eff0e71f2e0>
-start <function Parser.factor at 0x7eff0e71f1c0>
+start <function Parser.expression at 0x7fc4e7c503a0>
+start <function Parser.term at 0x7fc4e7c50280>
+start <function Parser.factor at 0x7fc4e7c50160>
 accepting ident == number
 accepting number == number
 getsym: uptosym upto
-end <function Parser.factor at 0x7eff0e71f1c0>
-end <function Parser.term at 0x7eff0e71f2e0>
-end <function Parser.expression at 0x7eff0e71f400>
+end <function Parser.factor at 0x7fc4e7c50160>
+end <function Parser.term at 0x7fc4e7c50280>
+end <function Parser.expression at 0x7fc4e7c503a0>
 accepting downtosym == uptosym
 expecting uptosym
 accepting uptosym == uptosym
-getsym: number 10
-start <function Parser.expression at 0x7eff0e71f400>
-start <function Parser.term at 0x7eff0e71f2e0>
-start <function Parser.factor at 0x7eff0e71f1c0>
+getsym: number 6
+start <function Parser.expression at 0x7fc4e7c503a0>
+start <function Parser.term at 0x7fc4e7c50280>
+start <function Parser.factor at 0x7fc4e7c50160>
 accepting ident == number
 accepting number == number
 getsym: comma ,
-end <function Parser.factor at 0x7eff0e71f1c0>
-end <function Parser.term at 0x7eff0e71f2e0>
-end <function Parser.expression at 0x7eff0e71f400>
+end <function Parser.factor at 0x7fc4e7c50160>
+end <function Parser.term at 0x7fc4e7c50280>
+end <function Parser.expression at 0x7fc4e7c503a0>
 expecting comma
 accepting comma == comma
 getsym: ident i
-start <function Parser.expression at 0x7eff0e71f400>
-start <function Parser.term at 0x7eff0e71f2e0>
-start <function Parser.factor at 0x7eff0e71f1c0>
+start <function Parser.expression at 0x7fc4e7c503a0>
+start <function Parser.term at 0x7fc4e7c50280>
+start <function Parser.factor at 0x7fc4e7c50160>
 accepting ident == ident
 getsym: plus +
 Looking up i
 Looking up i
-end <function Parser.factor at 0x7eff0e71f1c0>
-end <function Parser.term at 0x7eff0e71f2e0>
+end <function Parser.factor at 0x7fc4e7c50160>
+end <function Parser.term at 0x7fc4e7c50280>
 getsym: number 1
-start <function Parser.term at 0x7eff0e71f2e0>
-start <function Parser.factor at 0x7eff0e71f1c0>
+start <function Parser.term at 0x7fc4e7c50280>
+start <function Parser.factor at 0x7fc4e7c50160>
 accepting ident == number
 accepting number == number
 getsym: dosym do
-end <function Parser.factor at 0x7eff0e71f1c0>
-end <function Parser.term at 0x7eff0e71f2e0>
-end <function Parser.expression at 0x7eff0e71f400>
+end <function Parser.factor at 0x7fc4e7c50160>
+end <function Parser.term at 0x7fc4e7c50280>
+end <function Parser.expression at 0x7fc4e7c503a0>
 expecting dosym
 accepting dosym == dosym
 getsym: beginsym begin
-start <function Parser.statement at 0x7eff0e71f640>
+start <function Parser.statement at 0x7fc4e7c505e0>
 accepting ident == beginsym
 accepting callsym == beginsym
 accepting beginsym == beginsym
 getsym: ident x
-StatList : new 139633924254224
-start <function Parser.statement at 0x7eff0e71f640>
+StatList : new 140483678642208
+start <function Parser.statement at 0x7fc4e7c505e0>
 accepting ident == ident
 getsym: becomes :=
 Looking up x
@@ -129,618 +129,1344 @@ Looking up x
 expecting becomes
 accepting becomes == becomes
 getsym: ident x
-start <function Parser.expression at 0x7eff0e71f400>
-start <function Parser.term at 0x7eff0e71f2e0>
-start <function Parser.factor at 0x7eff0e71f1c0>
+start <function Parser.expression at 0x7fc4e7c503a0>
+start <function Parser.term at 0x7fc4e7c50280>
+start <function Parser.factor at 0x7fc4e7c50160>
 accepting ident == ident
 getsym: plus +
 Looking up x
 Looking up x
-end <function Parser.factor at 0x7eff0e71f1c0>
-end <function Parser.term at 0x7eff0e71f2e0>
+end <function Parser.factor at 0x7fc4e7c50160>
+end <function Parser.term at 0x7fc4e7c50280>
 getsym: number 1
-start <function Parser.term at 0x7eff0e71f2e0>
-start <function Parser.factor at 0x7eff0e71f1c0>
+start <function Parser.term at 0x7fc4e7c50280>
+start <function Parser.factor at 0x7fc4e7c50160>
 accepting ident == number
 accepting number == number
+getsym: semicolon ;
+end <function Parser.factor at 0x7fc4e7c50160>
+end <function Parser.term at 0x7fc4e7c50280>
+end <function Parser.expression at 0x7fc4e7c503a0>
+end <function Parser.statement at 0x7fc4e7c505e0>
+StatList: appending 140483678642592 of type <class 'ir.AssignStat'> to 140483678642208
+accepting semicolon == semicolon
+getsym: print print
+start <function Parser.statement at 0x7fc4e7c505e0>
+accepting ident == print
+accepting callsym == print
+accepting beginsym == print
+accepting ifsym == print
+accepting whilesym == print
+accepting forsym == print
+accepting print == print
+getsym: ident x
+start <function Parser.expression at 0x7fc4e7c503a0>
+start <function Parser.term at 0x7fc4e7c50280>
+start <function Parser.factor at 0x7fc4e7c50160>
+accepting ident == ident
 getsym: endsym end
-end <function Parser.factor at 0x7eff0e71f1c0>
-end <function Parser.term at 0x7eff0e71f2e0>
-end <function Parser.expression at 0x7eff0e71f400>
-end <function Parser.statement at 0x7eff0e71f640>
-StatList: appending 139633924254608 of type <class 'ir.AssignStat'> to 139633924254224
+Looking up x
+Looking up x
+end <function Parser.factor at 0x7fc4e7c50160>
+end <function Parser.term at 0x7fc4e7c50280>
+end <function Parser.expression at 0x7fc4e7c503a0>
+end <function Parser.statement at 0x7fc4e7c505e0>
+StatList: appending 140483678642736 of type <class 'ir.PrintStat'> to 140483678642208
 accepting semicolon == endsym
 expecting endsym
 accepting endsym == endsym
+getsym: semicolon ;
+StatList 140483678642208 : [ 140483678642592 140483678642736 ]
+end <function Parser.statement at 0x7fc4e7c505e0>
+StatList : new 140483678642880
+end <function Parser.statement at 0x7fc4e7c505e0>
+StatList: appending 140483678642832 of type <class 'ir.ForStat'> to 140483678696496
+accepting semicolon == semicolon
+getsym: print print
+start <function Parser.statement at 0x7fc4e7c505e0>
+accepting ident == print
+accepting callsym == print
+accepting beginsym == print
+accepting ifsym == print
+accepting whilesym == print
+accepting forsym == print
+accepting print == print
+getsym: ident x
+start <function Parser.expression at 0x7fc4e7c503a0>
+start <function Parser.term at 0x7fc4e7c50280>
+start <function Parser.factor at 0x7fc4e7c50160>
+accepting ident == ident
 getsym: endsym end
-StatList 139633924254224 : [ 139633924254608 ]
-end <function Parser.statement at 0x7eff0e71f640>
-end <function Parser.statement at 0x7eff0e71f640>
-StatList: appending 139633924254656 of type <class 'ir.ForStat'> to 139633926068864
+Looking up x
+Looking up x
+end <function Parser.factor at 0x7fc4e7c50160>
+end <function Parser.term at 0x7fc4e7c50280>
+end <function Parser.expression at 0x7fc4e7c503a0>
+end <function Parser.statement at 0x7fc4e7c505e0>
+StatList: appending 140483678643312 of type <class 'ir.PrintStat'> to 140483678696496
 accepting semicolon == endsym
 expecting endsym
 accepting endsym == endsym
 getsym: period .
-StatList 139633926068864 : [ 139633924253792 139633924254656 ]
-end <function Parser.statement at 0x7eff0e71f640>
-end <function Parser.block at 0x7eff0e71f760>
+StatList 140483678696496 : [ 140483678641776 140483678642832 140483678643312 ]
+end <function Parser.statement at 0x7fc4e7c505e0>
+end <function Parser.block at 0x7fc4e7c50700>
 expecting period
 accepting period == period
-end <function Parser.program at 0x7eff0e71fac0>
+end <function Parser.program at 0x7fc4e7c50a60>
 
- <class 'ir.Block'> 139633924254704 {
+ <class 'ir.Block'> 140483678643408 {
                                                                       <<<<<----- BUG? MISSING PARENT
+	defs: 	<class 'ir.DefinitionList'> 140483678696352 {
+	parent = 140483678643408
+	}
 	global_symtab: 	SymbolTable:
 	
-	body: 	<class 'ir.StatList'> 139633926068864 {
-	parent = 139633924254704
+	body: 	<class 'ir.StatList'> 140483678696496 {
+	parent = 140483678643408
 		children:
-		<class 'ir.AssignStat'> 139633924253792 {
-		parent = 139633926068864
-			offset: 	None
+		<class 'ir.AssignStat'> 140483678641776 {
+		parent = 140483678696496
 			symbol: 	global int x
-			expr: 	<class 'ir.Const'> 139633926070832 {
-			parent = 139633924253792
-				value: 	1
+			expr: 	<class 'ir.Const'> 140483678698464 {
+			parent = 140483678641776
 				symbol: 	None
+				value: 	0
 			}
+			offset: 	None
 		}
-		<class 'ir.ForStat'> 139633924254656 {
-		parent = 139633926068864
-			start_assign: 	<class 'ir.AssignStat'> 139633924254752 {
-			parent = 139633924254656
-				offset: 	None
+		<class 'ir.ForStat'> 140483678642832 {
+		parent = 140483678696496
+			start_assign: 	<class 'ir.AssignStat'> 140483678642928 {
+			parent = 140483678642832
 				symbol: 	global int i
-				expr: 	<class 'ir.Const'> 139633926068816 {
-				parent = 139633924254752
-					value: 	0
+				expr: 	<class 'ir.Const'> 140483678696448 {
+				parent = 140483678642928
 					symbol: 	None
+					value: 	0
 				}
-			}
-			step: 	<class 'ir.AssignStat'> 139633926070928 {
-			parent = 139633924254656
 				offset: 	None
+			}
+			step: 	<class 'ir.AssignStat'> 140483678698560 {
+			parent = 140483678642832
 				symbol: 	global int i
-				expr: 	<class 'ir.BinExpr'> 139633924254128 {
-				parent = 139633926070928
+				expr: 	<class 'ir.BinExpr'> 140483678642112 {
+				parent = 140483678698560
 					children:
 					'plus'
-					<class 'ir.Var'> 139633924253936 {
-					parent = 139633924254128
+					<class 'ir.Var'> 140483678641920 {
+					parent = 140483678642112
 						symbol: 	global int i
 					}
-					<class 'ir.Const'> 139633924254032 {
-					parent = 139633924254128
-						value: 	1
+					<class 'ir.Const'> 140483678642016 {
+					parent = 140483678642112
 						symbol: 	None
+						value: 	1
 					}
 				}
+				offset: 	None
 			}
-			cond: 	<class 'ir.BinExpr'> 139633924254896 {
-			parent = 139633924254656
+			cond: 	<class 'ir.BinExpr'> 140483678643072 {
+			parent = 140483678642832
 				children:
 				'lss'
-				<class 'ir.Var'> 139633924254800 {
-				parent = 139633924254896
+				<class 'ir.Var'> 140483678642976 {
+				parent = 140483678643072
 					symbol: 	global int i
 				}
-				<class 'ir.Const'> 139633924253840 {
-				parent = 139633924254896
-					value: 	10
+				<class 'ir.Const'> 140483678641824 {
+				parent = 140483678643072
 					symbol: 	None
+					value: 	6
 				}
 			}
-			body: 	<class 'ir.StatList'> 139633924254224 {
-			parent = 139633924254656
+			body: 	<class 'ir.StatList'> 140483678642208 {
+			parent = 140483678642832
 				children:
-				<class 'ir.AssignStat'> 139633924254608 {
-				parent = 139633924254224
-					offset: 	None
+				<class 'ir.AssignStat'> 140483678642592 {
+				parent = 140483678642208
 					symbol: 	global int x
-					expr: 	<class 'ir.BinExpr'> 139633924254512 {
-					parent = 139633924254608
+					expr: 	<class 'ir.BinExpr'> 140483678642496 {
+					parent = 140483678642592
 						children:
 						'plus'
-						<class 'ir.Var'> 139633924254320 {
-						parent = 139633924254512
+						<class 'ir.Var'> 140483678642304 {
+						parent = 140483678642496
 							symbol: 	global int x
 						}
-						<class 'ir.Const'> 139633924254416 {
-						parent = 139633924254512
-							value: 	1
+						<class 'ir.Const'> 140483678642400 {
+						parent = 140483678642496
 							symbol: 	None
+							value: 	1
 						}
+					}
+					offset: 	None
+				}
+				<class 'ir.PrintStat'> 140483678642736 {
+				parent = 140483678642208
+					children:
+					<class 'ir.Var'> 140483678642640 {
+					parent = 140483678642736
+						symbol: 	global int x
+					}
+					expr: 	<class 'ir.Var'> 140483678642640 {
+					parent = 140483678642736
+						symbol: 	global int x
 					}
 				}
 			}
 		}
-	}
-	defs: 	<class 'ir.DefinitionList'> 139633926068720 {
-	parent = 139633924254704
+		<class 'ir.PrintStat'> 140483678643312 {
+		parent = 140483678696496
+			children:
+			<class 'ir.Var'> 140483678643216 {
+			parent = 140483678643312
+				symbol: 	global int x
+			}
+			expr: 	<class 'ir.Var'> 140483678643216 {
+			parent = 140483678643312
+				symbol: 	global int x
+			}
+		}
 	}
 } 
 
-navigating children of <class 'ir.StatList'> 139633926068864 2
-<class 'ir.Const'> 139633926070832
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633924253792
-<class 'ir.AssignStat'> 139633924253792
-<class 'ir.Const'> 139633926068816
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633924254752
-<class 'ir.AssignStat'> 139633924254752
-successfully navigated attr  start_assign  of <class 'ir.ForStat'> 139633924254656
-navigating children of <class 'ir.BinExpr'> 139633924254128 3
-<class 'ir.Var'> 139633924253936
-<class 'ir.Const'> 139633924254032
-<class 'ir.BinExpr'> 139633924254128
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633926070928
-<class 'ir.AssignStat'> 139633926070928
-successfully navigated attr  step  of <class 'ir.ForStat'> 139633924254656
-navigating children of <class 'ir.BinExpr'> 139633924254896 3
-<class 'ir.Var'> 139633924254800
-<class 'ir.Const'> 139633924253840
-<class 'ir.BinExpr'> 139633924254896
-successfully navigated attr  cond  of <class 'ir.ForStat'> 139633924254656
-navigating children of <class 'ir.StatList'> 139633924254224 1
-navigating children of <class 'ir.BinExpr'> 139633924254512 3
-<class 'ir.Var'> 139633924254320
-<class 'ir.Const'> 139633924254416
-<class 'ir.BinExpr'> 139633924254512
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633924254608
-<class 'ir.AssignStat'> 139633924254608
-<class 'ir.StatList'> 139633924254224
-StatList 139633924254224 : [ 139633924254608 ]
-successfully navigated attr  body  of <class 'ir.ForStat'> 139633924254656
-<class 'ir.ForStat'> 139633924254656
-<class 'ir.StatList'> 139633926068864
-StatList 139633926068864 : [ 139633924253792 139633924254656 ]
-successfully navigated attr  body  of <class 'ir.Block'> 139633924254704
-<class 'ir.DefinitionList'> 139633926068720
-successfully navigated attr  defs  of <class 'ir.Block'> 139633924254704
-<class 'ir.Block'> 139633924254704
-navigating children of <class 'ir.StatList'> 139633926068864 2
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633924253792
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633924254752
-successfully navigated attr  start_assign  of <class 'ir.ForStat'> 139633924254656
-navigating children of <class 'ir.BinExpr'> 139633924254128 3
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633926070928
-successfully navigated attr  step  of <class 'ir.ForStat'> 139633924254656
-navigating children of <class 'ir.BinExpr'> 139633924254896 3
-successfully navigated attr  cond  of <class 'ir.ForStat'> 139633924254656
-navigating children of <class 'ir.StatList'> 139633924254224 1
-navigating children of <class 'ir.BinExpr'> 139633924254512 3
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633924254608
-successfully navigated attr  body  of <class 'ir.ForStat'> 139633924254656
-successfully navigated attr  body  of <class 'ir.Block'> 139633924254704
-successfully navigated attr  defs  of <class 'ir.Block'> 139633924254704
-<class 'ir.Const'> 139633926070832 -> <class 'ir.AssignStat'> 139633924253792
-<class 'ir.AssignStat'> 139633924253792 -> <class 'ir.StatList'> 139633926068864
-<class 'ir.Const'> 139633926068816 -> <class 'ir.AssignStat'> 139633924254752
-<class 'ir.AssignStat'> 139633924254752 -> <class 'ir.ForStat'> 139633924254656
-<class 'ir.Var'> 139633924253936 -> <class 'ir.BinExpr'> 139633924254128
-<class 'ir.Const'> 139633924254032 -> <class 'ir.BinExpr'> 139633924254128
-<class 'ir.BinExpr'> 139633924254128 -> <class 'ir.AssignStat'> 139633926070928
-<class 'ir.AssignStat'> 139633926070928 -> <class 'ir.ForStat'> 139633924254656
-<class 'ir.Var'> 139633924254800 -> <class 'ir.BinExpr'> 139633924254896
-<class 'ir.Const'> 139633924253840 -> <class 'ir.BinExpr'> 139633924254896
-<class 'ir.BinExpr'> 139633924254896 -> <class 'ir.ForStat'> 139633924254656
-<class 'ir.Var'> 139633924254320 -> <class 'ir.BinExpr'> 139633924254512
-<class 'ir.Const'> 139633924254416 -> <class 'ir.BinExpr'> 139633924254512
-<class 'ir.BinExpr'> 139633924254512 -> <class 'ir.AssignStat'> 139633924254608
-<class 'ir.AssignStat'> 139633924254608 -> <class 'ir.StatList'> 139633924254224
-<class 'ir.StatList'> 139633924254224 -> <class 'ir.ForStat'> 139633924254656
-<class 'ir.ForStat'> 139633924254656 -> <class 'ir.StatList'> 139633926068864
-<class 'ir.StatList'> 139633926068864 -> <class 'ir.Block'> 139633924254704
-<class 'ir.DefinitionList'> 139633926068720 -> <class 'ir.Block'> 139633924254704
-<class 'ir.Block'> 139633924254704 -> <class 'NoneType'> 94897423127520
+<class 'ir.DefinitionList'> 140483678696352
+successfully navigated attr  defs  of <class 'ir.Block'> 140483678643408
+navigating children of <class 'ir.StatList'> 140483678696496 3
+<class 'ir.Const'> 140483678698464
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678641776
+<class 'ir.AssignStat'> 140483678641776
+<class 'ir.Const'> 140483678696448
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678642928
+<class 'ir.AssignStat'> 140483678642928
+successfully navigated attr  start_assign  of <class 'ir.ForStat'> 140483678642832
+navigating children of <class 'ir.BinExpr'> 140483678643072 3
+<class 'ir.Var'> 140483678642976
+<class 'ir.Const'> 140483678641824
+<class 'ir.BinExpr'> 140483678643072
+successfully navigated attr  cond  of <class 'ir.ForStat'> 140483678642832
+navigating children of <class 'ir.StatList'> 140483678642208 2
+navigating children of <class 'ir.BinExpr'> 140483678642496 3
+<class 'ir.Var'> 140483678642304
+<class 'ir.Const'> 140483678642400
+<class 'ir.BinExpr'> 140483678642496
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678642592
+<class 'ir.AssignStat'> 140483678642592
+navigating children of <class 'ir.PrintStat'> 140483678642736 1
+<class 'ir.Var'> 140483678642640
+<class 'ir.Var'> 140483678642640
+successfully navigated attr  expr  of <class 'ir.PrintStat'> 140483678642736
+<class 'ir.PrintStat'> 140483678642736
+<class 'ir.StatList'> 140483678642208
+StatList 140483678642208 : [ 140483678642592 140483678642736 ]
+successfully navigated attr  body  of <class 'ir.ForStat'> 140483678642832
+<class 'ir.StatList'> 140483678642880
+StatList 140483678642880 : [ ]
+successfully navigated attr  unroll_remainder_statlist  of <class 'ir.ForStat'> 140483678642832
+navigating children of <class 'ir.BinExpr'> 140483678642112 3
+<class 'ir.Var'> 140483678641920
+<class 'ir.Const'> 140483678642016
+<class 'ir.BinExpr'> 140483678642112
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678698560
+<class 'ir.AssignStat'> 140483678698560
+successfully navigated attr  step  of <class 'ir.ForStat'> 140483678642832
+<class 'ir.ForStat'> 140483678642832
+navigating children of <class 'ir.PrintStat'> 140483678643312 1
+<class 'ir.Var'> 140483678643216
+<class 'ir.Var'> 140483678643216
+successfully navigated attr  expr  of <class 'ir.PrintStat'> 140483678643312
+<class 'ir.PrintStat'> 140483678643312
+<class 'ir.StatList'> 140483678696496
+StatList 140483678696496 : [ 140483678641776 140483678642832 140483678643312 ]
+successfully navigated attr  body  of <class 'ir.Block'> 140483678643408
+<class 'ir.Block'> 140483678643408
+successfully navigated attr  defs  of <class 'ir.Block'> 140483678643408
+navigating children of <class 'ir.StatList'> 140483678696496 3
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678641776
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678642928
+successfully navigated attr  start_assign  of <class 'ir.ForStat'> 140483678642832
+navigating children of <class 'ir.BinExpr'> 140483678643072 3
+successfully navigated attr  cond  of <class 'ir.ForStat'> 140483678642832
+navigating children of <class 'ir.StatList'> 140483678642208 2
+navigating children of <class 'ir.BinExpr'> 140483678642496 3
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678642592
+navigating children of <class 'ir.PrintStat'> 140483678642736 1
+successfully navigated attr  expr  of <class 'ir.PrintStat'> 140483678642736
+successfully navigated attr  body  of <class 'ir.ForStat'> 140483678642832
+successfully navigated attr  unroll_remainder_statlist  of <class 'ir.ForStat'> 140483678642832
+navigating children of <class 'ir.BinExpr'> 140483678642112 3
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678698560
+successfully navigated attr  step  of <class 'ir.ForStat'> 140483678642832
+navigating children of <class 'ir.PrintStat'> 140483678643312 1
+successfully navigated attr  expr  of <class 'ir.PrintStat'> 140483678643312
+successfully navigated attr  body  of <class 'ir.Block'> 140483678643408
+<class 'ir.DefinitionList'> 140483678696352
+<class 'ir.Const'> 140483678698464
+<class 'ir.AssignStat'> 140483678641776
+<class 'ir.Const'> 140483678696448
+<class 'ir.AssignStat'> 140483678642928
+<class 'ir.Var'> 140483678642976
+<class 'ir.Const'> 140483678641824
+<class 'ir.BinExpr'> 140483678643072
+<class 'ir.Var'> 140483678642304
+<class 'ir.Const'> 140483678642400
+<class 'ir.BinExpr'> 140483678642496
+<class 'ir.AssignStat'> 140483678642592
+<class 'ir.Var'> 140483678642640
+<class 'ir.PrintStat'> 140483678642736
+<class 'ir.StatList'> 140483678642208
+<class 'ir.StatList'> 140483678642880
+<class 'ir.Var'> 140483678641920
+<class 'ir.Const'> 140483678642016
+<class 'ir.BinExpr'> 140483678642112
+<class 'ir.AssignStat'> 140483678698560
+<class 'ir.ForStat'> 140483678642832
 
-Total nodes in IR: 20 
+STARTING STRIP MINING
 
-navigating children of <class 'ir.StatList'> 139633926068864 2
-StatList : new 139633924255232
-Lowering <class 'ir.Const'> 139633926070832
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633924253792
-StatList : new 139633924255328
-Lowering <class 'ir.AssignStat'> 139633924253792
-StatList : new 139633924255472
-Lowering <class 'ir.Const'> 139633926068816
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633924254752
-StatList : new 139633924255568
-Lowering <class 'ir.AssignStat'> 139633924254752
-successfully navigated attr  start_assign  of <class 'ir.ForStat'> 139633924254656
-navigating children of <class 'ir.BinExpr'> 139633924254128 3
-StatList : new 139633924255856
-Lowering <class 'ir.Var'> 139633924253936
-StatList : new 139633924256048
-Lowering <class 'ir.Const'> 139633924254032
-StatList : new 139633924256288
-Lowering <class 'ir.BinExpr'> 139633924254128
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633926070928
-StatList : new 139633924256384
-Lowering <class 'ir.AssignStat'> 139633926070928
-successfully navigated attr  step  of <class 'ir.ForStat'> 139633924254656
-navigating children of <class 'ir.BinExpr'> 139633924254896 3
-StatList : new 139633924256672
-Lowering <class 'ir.Var'> 139633924254800
-StatList : new 139633924256864
-Lowering <class 'ir.Const'> 139633924253840
-StatList : new 139633924257104
-Lowering <class 'ir.BinExpr'> 139633924254896
-successfully navigated attr  cond  of <class 'ir.ForStat'> 139633924254656
-navigating children of <class 'ir.StatList'> 139633924254224 1
-navigating children of <class 'ir.BinExpr'> 139633924254512 3
-StatList : new 139633924257392
-Lowering <class 'ir.Var'> 139633924254320
-StatList : new 139633924257584
-Lowering <class 'ir.Const'> 139633924254416
-StatList : new 139633924257824
-Lowering <class 'ir.BinExpr'> 139633924254512
-successfully navigated attr  expr  of <class 'ir.AssignStat'> 139633924254608
-StatList : new 139633924257920
-Lowering <class 'ir.AssignStat'> 139633924254608
-Cannot lower 139633924254224 <class 'ir.StatList'> 'StatList' object has no attribute 'lower'
-successfully navigated attr  body  of <class 'ir.ForStat'> 139633924254656
-StatList : new 139633924258304
-Lowering <class 'ir.ForStat'> 139633924254656
-Cannot lower 139633926068864 <class 'ir.StatList'> 'StatList' object has no attribute 'lower'
-successfully navigated attr  body  of <class 'ir.Block'> 139633924254704
-Cannot lower 139633926068720 <class 'ir.DefinitionList'> 'DefinitionList' object has no attribute 'lower'
-successfully navigated attr  defs  of <class 'ir.Block'> 139633924254704
-Cannot lower 139633924254704 <class 'ir.Block'> 'Block' object has no attribute 'lower'
-navigating children of <class 'ir.StatList'> 139633926068864 2
-navigating children of <class 'ir.StatList'> 139633924255328 2
-navigating children of <class 'ir.StatList'> 139633924255232 1
-navigating children of <class 'ir.StatList'> 139633924258304 7
-navigating children of <class 'ir.StatList'> 139633924255568 2
-navigating children of <class 'ir.StatList'> 139633924255472 1
-navigating children of <class 'ir.StatList'> 139633924257104 3
-navigating children of <class 'ir.StatList'> 139633924256672 1
-navigating children of <class 'ir.StatList'> 139633924256864 1
-navigating children of <class 'ir.StatList'> 139633924254224 1
-navigating children of <class 'ir.StatList'> 139633924257920 2
-navigating children of <class 'ir.StatList'> 139633924257824 3
-navigating children of <class 'ir.StatList'> 139633924257392 1
-navigating children of <class 'ir.StatList'> 139633924257584 1
-navigating children of <class 'ir.StatList'> 139633924256384 2
-navigating children of <class 'ir.StatList'> 139633924256288 3
-navigating children of <class 'ir.StatList'> 139633924255856 1
-navigating children of <class 'ir.StatList'> 139633924256048 1
-successfully navigated attr  body  of <class 'ir.Block'> 139633924254704
-successfully navigated attr  defs  of <class 'ir.Block'> 139633924254704
+END CONSTANT
+STEP CONSTANT
+START CONSTANT
+self symtab
+SymbolTable:
+global int x
+global int i
+auto int tmp_variable_for_strip_mining
 
- <class 'ir.Block'> 139633924254704 {
+parent symtab
+SymbolTable:
+global int x
+global int i
+auto int tmp_variable_for_strip_mining
+
+parent
+<class 'ir.Block'> 140483678643408 {
                                                                       <<<<<----- BUG? MISSING PARENT
+	defs: 	<class 'ir.DefinitionList'> 140483678696352 {
+	parent = 140483678643408
+	}
 	global_symtab: 	SymbolTable:
 	
-	body: 	<class 'ir.StatList'> 139633926068864 {
-	parent = 139633924254704
+	body: 	<class 'ir.StatList'> 140483678696496 {
+	parent = 140483678643408
 		children:
-		<class 'ir.StatList'> 139633924255328 {
-		parent = 139633926068864
-			children:
-			<class 'ir.StatList'> 139633924255232 {
-			parent = 139633924255328
+		<class 'ir.AssignStat'> 140483678641776 {
+		parent = 140483678696496
+			symbol: 	global int x
+			expr: 	<class 'ir.Const'> 140483678698464 {
+			parent = 140483678641776
+				symbol: 	None
+				value: 	0
+			}
+			offset: 	None
+		}
+		<class 'ir.ForStat'> 140483678642832 {
+		parent = 140483678696496
+			start_assign: 	<class 'ir.AssignStat'> 140483678642928 {
+			parent = 140483678642832
+				symbol: 	global int i
+				expr: 	<class 'ir.Const'> 140483678696448 {
+				parent = 140483678642928
+					symbol: 	None
+					value: 	0
+				}
+				offset: 	None
+			}
+			step: 	<class 'ir.AssignStat'> 140483678698560 {
+			parent = 140483678642832
+				symbol: 	global int i
+				expr: 	<class 'ir.BinExpr'> 140483678642112 {
+				parent = 140483678698560
+					children:
+					'plus'
+					<class 'ir.Var'> 140483678641920 {
+					parent = 140483678642112
+						symbol: 	global int i
+					}
+					<class 'ir.Const'> 140483678642016 {
+					parent = 140483678642112
+						symbol: 	None
+						value: 	1
+					}
+				}
+				offset: 	None
+			}
+			cond: 	<class 'ir.BinExpr'> 140483678643072 {
+			parent = 140483678642832
 				children:
-				reg int t0 <- 1
+				'lss'
+				<class 'ir.Var'> 140483678642976 {
+				parent = 140483678643072
+					symbol: 	global int i
+				}
+				<class 'ir.Const'> 140483678641824 {
+				parent = 140483678643072
+					symbol: 	None
+					value: 	6
+				}
+			}
+			body: 	<class 'ir.StatList'> 140483678642208 {
+			parent = 140483678642832
+				children:
+				<class 'ir.AssignStat'> 140483678642592 {
+				parent = 140483678642208
+					symbol: 	global int x
+					expr: 	<class 'ir.BinExpr'> 140483678642496 {
+					parent = 140483678642592
+						children:
+						'plus'
+						<class 'ir.Var'> 140483678642304 {
+						parent = 140483678642496
+							symbol: 	global int x
+						}
+						<class 'ir.Const'> 140483678642400 {
+						parent = 140483678642496
+							symbol: 	None
+							value: 	1
+						}
+					}
+					offset: 	None
+				}
+				<class 'ir.PrintStat'> 140483678642736 {
+				parent = 140483678642208
+					children:
+					<class 'ir.Var'> 140483678642640 {
+					parent = 140483678642736
+						symbol: 	global int x
+					}
+					expr: 	<class 'ir.Var'> 140483678642640 {
+					parent = 140483678642736
+						symbol: 	global int x
+					}
+				}
+			}
+		}
+		<class 'ir.PrintStat'> 140483678643312 {
+		parent = 140483678696496
+			children:
+			<class 'ir.Var'> 140483678643216 {
+			parent = 140483678643312
+				symbol: 	global int x
+			}
+			expr: 	<class 'ir.Var'> 140483678643216 {
+			parent = 140483678643312
+				symbol: 	global int x
+			}
+		}
+	}
+}
+NEW SYMBOL CREATED
+OUTER EXPRS CREATED
+INNER EXPRS CREATED
+StatList : new 140483678644560
+INNER FOR CREATED
+StatList : new 140483678644992
+OUTER FOR CREATED
+OUTER FOR INCOMINGs
+<class 'ir.ForStat'> 140483678644656 {
+parent = 140483678696496
+	start_assign: 	<class 'ir.AssignStat'> 140483678644704 {
+	parent = 140483678644656
+		symbol: 	auto int tmp_variable_for_strip_mining
+		expr: 	<class 'ir.Const'> 140483678644032 {
+		parent = 140483678644704
+			symbol: 	None
+			value: 	0
+		}
+		offset: 	None
+	}
+	step: 	<class 'ir.AssignStat'> 140483678644752 {
+	parent = 140483678644656
+		symbol: 	auto int tmp_variable_for_strip_mining
+		expr: 	<class 'ir.BinExpr'> 140483678643888 {
+		parent = 140483678644752
+			children:
+			'plus'
+			<class 'ir.Var'> 140483678643648 {
+			parent = 140483678643888
+				symbol: 	auto int tmp_variable_for_strip_mining
+			}
+			<class 'ir.Const'> 140483678643504 {
+			parent = 140483678643888
+				symbol: 	None
+				value: 	3
+			}
+		}
+		offset: 	None
+	}
+	cond: 	<class 'ir.BinExpr'> 140483678644896 {
+	parent = 140483678644656
+		children:
+		'lss'
+		<class 'ir.Var'> 140483678644800 {
+		parent = 140483678644896
+			symbol: 	auto int tmp_variable_for_strip_mining
+		}
+		<class 'ir.Const'> 140483678643792 {
+		parent = 140483678644896
+			symbol: 	None
+			value: 	2
+		}
+	}
+	body: 	<class 'ir.ForStat'> 140483678644176 {
+	parent = 140483678644656
+		start_assign: 	<class 'ir.AssignStat'> 140483678644272 {
+		parent = 140483678644176
+			symbol: 	global int i
+			expr: 	<class 'ir.Var'> 140483678643696 {
+			parent = 140483678644272
+				symbol: 	auto int tmp_variable_for_strip_mining
+			}
+			offset: 	None
+		}
+		step: 	<class 'ir.AssignStat'> 140483678644320 {
+		parent = 140483678644176
+			symbol: 	global int i
+			expr: 	<class 'ir.BinExpr'> 140483678642112 {
+			parent = 140483678644320
+				children:
+				'plus'
+				<class 'ir.Var'> 140483678641920 {
+				parent = 140483678642112
+					symbol: 	global int i
+				}
+				<class 'ir.Const'> 140483678642016 {
+				parent = 140483678642112
+					symbol: 	None
+					value: 	1
+				}
+			}
+			offset: 	None
+		}
+		cond: 	<class 'ir.BinExpr'> 140483678644464 {
+		parent = 140483678644176
+			children:
+			'lss'
+			<class 'ir.Var'> 140483678644368 {
+			parent = 140483678644464
+				symbol: 	global int i
+			}
+			<class 'ir.Const'> 140483678644080 {
+			parent = 140483678644464
+				symbol: 	None
+				value: 	3
+			}
+		}
+		body: 	<class 'ir.StatList'> 140483678642208 {
+		parent = 140483678644176
+			children:
+			<class 'ir.AssignStat'> 140483678642592 {
+			parent = 140483678642208
+				symbol: 	global int x
+				expr: 	<class 'ir.BinExpr'> 140483678642496 {
+				parent = 140483678642592
+					children:
+					'plus'
+					<class 'ir.Var'> 140483678642304 {
+					parent = 140483678642496
+						symbol: 	global int x
+					}
+					<class 'ir.Const'> 140483678642400 {
+					parent = 140483678642496
+						symbol: 	None
+						value: 	1
+					}
+				}
+				offset: 	None
+			}
+			<class 'ir.PrintStat'> 140483678642736 {
+			parent = 140483678642208
+				children:
+				<class 'ir.Var'> 140483678642640 {
+				parent = 140483678642736
+					symbol: 	global int x
+				}
+				expr: 	<class 'ir.Var'> 140483678642640 {
+				parent = 140483678642736
+					symbol: 	global int x
+				}
+			}
+		}
+	}
+}
+<class 'ir.Var'> 140483678643216
+<class 'ir.PrintStat'> 140483678643312
+<class 'ir.StatList'> 140483678696496
+<class 'ir.Block'> 140483678643408
+successfully navigated attr  defs  of <class 'ir.Block'> 140483678643408
+navigating children of <class 'ir.StatList'> 140483678696496 3
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678641776
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678644704
+successfully navigated attr  start_assign  of <class 'ir.ForStat'> 140483678644656
+navigating children of <class 'ir.BinExpr'> 140483678644896 3
+successfully navigated attr  cond  of <class 'ir.ForStat'> 140483678644656
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678644272
+successfully navigated attr  start_assign  of <class 'ir.ForStat'> 140483678644176
+navigating children of <class 'ir.BinExpr'> 140483678644464 3
+successfully navigated attr  cond  of <class 'ir.ForStat'> 140483678644176
+navigating children of <class 'ir.StatList'> 140483678642208 2
+navigating children of <class 'ir.BinExpr'> 140483678642496 3
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678642592
+navigating children of <class 'ir.PrintStat'> 140483678642736 1
+successfully navigated attr  expr  of <class 'ir.PrintStat'> 140483678642736
+successfully navigated attr  body  of <class 'ir.ForStat'> 140483678644176
+successfully navigated attr  unroll_remainder_statlist  of <class 'ir.ForStat'> 140483678644176
+navigating children of <class 'ir.BinExpr'> 140483678642112 3
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678644320
+successfully navigated attr  step  of <class 'ir.ForStat'> 140483678644176
+successfully navigated attr  body  of <class 'ir.ForStat'> 140483678644656
+successfully navigated attr  unroll_remainder_statlist  of <class 'ir.ForStat'> 140483678644656
+navigating children of <class 'ir.BinExpr'> 140483678643888 3
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678644752
+successfully navigated attr  step  of <class 'ir.ForStat'> 140483678644656
+navigating children of <class 'ir.PrintStat'> 140483678643312 1
+successfully navigated attr  expr  of <class 'ir.PrintStat'> 140483678643312
+successfully navigated attr  body  of <class 'ir.Block'> 140483678643408
+<class 'ir.DefinitionList'> 140483678696352 -> <class 'ir.Block'> 140483678643408
+<class 'ir.Const'> 140483678698464 -> <class 'ir.AssignStat'> 140483678641776
+<class 'ir.AssignStat'> 140483678641776 -> <class 'ir.StatList'> 140483678696496
+<class 'ir.Const'> 140483678644032 -> <class 'ir.AssignStat'> 140483678644704
+<class 'ir.AssignStat'> 140483678644704 -> <class 'ir.ForStat'> 140483678644656
+<class 'ir.Var'> 140483678644800 -> <class 'ir.BinExpr'> 140483678644896
+<class 'ir.Const'> 140483678643792 -> <class 'ir.BinExpr'> 140483678644896
+<class 'ir.BinExpr'> 140483678644896 -> <class 'ir.ForStat'> 140483678644656
+<class 'ir.Var'> 140483678643696 -> <class 'ir.AssignStat'> 140483678644272
+<class 'ir.AssignStat'> 140483678644272 -> <class 'ir.ForStat'> 140483678644176
+<class 'ir.Var'> 140483678644368 -> <class 'ir.BinExpr'> 140483678644464
+<class 'ir.Const'> 140483678644080 -> <class 'ir.BinExpr'> 140483678644464
+<class 'ir.BinExpr'> 140483678644464 -> <class 'ir.ForStat'> 140483678644176
+<class 'ir.Var'> 140483678642304 -> <class 'ir.BinExpr'> 140483678642496
+<class 'ir.Const'> 140483678642400 -> <class 'ir.BinExpr'> 140483678642496
+<class 'ir.BinExpr'> 140483678642496 -> <class 'ir.AssignStat'> 140483678642592
+<class 'ir.AssignStat'> 140483678642592 -> <class 'ir.StatList'> 140483678642208
+<class 'ir.Var'> 140483678642640 -> <class 'ir.PrintStat'> 140483678642736
+<class 'ir.PrintStat'> 140483678642736 -> <class 'ir.StatList'> 140483678642208
+<class 'ir.StatList'> 140483678642208 -> <class 'ir.ForStat'> 140483678644176
+<class 'ir.StatList'> 140483678644560 -> <class 'ir.ForStat'> 140483678644176
+<class 'ir.Var'> 140483678641920 -> <class 'ir.BinExpr'> 140483678642112
+<class 'ir.Const'> 140483678642016 -> <class 'ir.BinExpr'> 140483678642112
+<class 'ir.BinExpr'> 140483678642112 -> <class 'ir.AssignStat'> 140483678644320
+<class 'ir.AssignStat'> 140483678644320 -> <class 'ir.ForStat'> 140483678644176
+<class 'ir.ForStat'> 140483678644176 -> <class 'ir.ForStat'> 140483678644656
+<class 'ir.StatList'> 140483678644992 -> <class 'ir.ForStat'> 140483678644656
+<class 'ir.Var'> 140483678643648 -> <class 'ir.BinExpr'> 140483678643888
+<class 'ir.Const'> 140483678643504 -> <class 'ir.BinExpr'> 140483678643888
+<class 'ir.BinExpr'> 140483678643888 -> <class 'ir.AssignStat'> 140483678644752
+<class 'ir.AssignStat'> 140483678644752 -> <class 'ir.ForStat'> 140483678644656
+<class 'ir.ForStat'> 140483678644656 -> <class 'ir.StatList'> 140483678696496
+<class 'ir.Var'> 140483678643216 -> <class 'ir.PrintStat'> 140483678643312
+<class 'ir.PrintStat'> 140483678643312 -> <class 'ir.StatList'> 140483678696496
+<class 'ir.StatList'> 140483678696496 -> <class 'ir.Block'> 140483678643408
+<class 'ir.Block'> 140483678643408 -> <class 'NoneType'> 94661490873312
+
+Total nodes in IR: 36 
+
+Cannot lower 140483678696352 <class 'ir.DefinitionList'> 'DefinitionList' object has no attribute 'lower'
+successfully navigated attr  defs  of <class 'ir.Block'> 140483678643408
+navigating children of <class 'ir.StatList'> 140483678696496 3
+StatList : new 140483678645184
+Lowering <class 'ir.Const'> 140483678698464
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678641776
+StatList : new 140483678645136
+Lowering <class 'ir.AssignStat'> 140483678641776
+StatList : new 140483678645424
+Lowering <class 'ir.Const'> 140483678644032
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678644704
+StatList : new 140483678645616
+Lowering <class 'ir.AssignStat'> 140483678644704
+successfully navigated attr  start_assign  of <class 'ir.ForStat'> 140483678644656
+navigating children of <class 'ir.BinExpr'> 140483678644896 3
+StatList : new 140483678645856
+Lowering <class 'ir.Var'> 140483678644800
+StatList : new 140483678646144
+Lowering <class 'ir.Const'> 140483678643792
+StatList : new 140483678646240
+Lowering <class 'ir.BinExpr'> 140483678644896
+successfully navigated attr  cond  of <class 'ir.ForStat'> 140483678644656
+StatList : new 140483678646576
+Lowering <class 'ir.Var'> 140483678643696
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678644272
+StatList : new 140483678646672
+Lowering <class 'ir.AssignStat'> 140483678644272
+successfully navigated attr  start_assign  of <class 'ir.ForStat'> 140483678644176
+navigating children of <class 'ir.BinExpr'> 140483678644464 3
+StatList : new 140483678646864
+Lowering <class 'ir.Var'> 140483678644368
+StatList : new 140483678647152
+Lowering <class 'ir.Const'> 140483678644080
+StatList : new 140483678647248
+Lowering <class 'ir.BinExpr'> 140483678644464
+successfully navigated attr  cond  of <class 'ir.ForStat'> 140483678644176
+navigating children of <class 'ir.StatList'> 140483678642208 2
+navigating children of <class 'ir.BinExpr'> 140483678642496 3
+StatList : new 140483678647536
+Lowering <class 'ir.Var'> 140483678642304
+StatList : new 140483678647872
+Lowering <class 'ir.Const'> 140483678642400
+StatList : new 140483678647968
+Lowering <class 'ir.BinExpr'> 140483678642496
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678642592
+StatList : new 140483678648208
+Lowering <class 'ir.AssignStat'> 140483678642592
+navigating children of <class 'ir.PrintStat'> 140483678642736 1
+StatList : new 140483678648448
+Lowering <class 'ir.Var'> 140483678642640
+StatList : new 140483678648736
+Lowering <class 'ir.Var'> 140483678642640
+successfully navigated attr  expr  of <class 'ir.PrintStat'> 140483678642736
+StatList : new 140483678648832
+Lowering <class 'ir.PrintStat'> 140483678642736
+Cannot lower 140483678642208 <class 'ir.StatList'> 'StatList' object has no attribute 'lower'
+successfully navigated attr  body  of <class 'ir.ForStat'> 140483678644176
+Cannot lower 140483678644560 <class 'ir.StatList'> 'StatList' object has no attribute 'lower'
+successfully navigated attr  unroll_remainder_statlist  of <class 'ir.ForStat'> 140483678644176
+navigating children of <class 'ir.BinExpr'> 140483678642112 3
+StatList : new 140483678647584
+Lowering <class 'ir.Var'> 140483678641920
+StatList : new 140483678649216
+Lowering <class 'ir.Const'> 140483678642016
+StatList : new 140483678649312
+Lowering <class 'ir.BinExpr'> 140483678642112
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678644320
+StatList : new 140483678649552
+Lowering <class 'ir.AssignStat'> 140483678644320
+successfully navigated attr  step  of <class 'ir.ForStat'> 140483678644176
+StatList : new 140483678649984
+Lowering <class 'ir.ForStat'> 140483678644176
+successfully navigated attr  body  of <class 'ir.ForStat'> 140483678644656
+Cannot lower 140483678644992 <class 'ir.StatList'> 'StatList' object has no attribute 'lower'
+successfully navigated attr  unroll_remainder_statlist  of <class 'ir.ForStat'> 140483678644656
+navigating children of <class 'ir.BinExpr'> 140483678643888 3
+StatList : new 140483678650080
+Lowering <class 'ir.Var'> 140483678643648
+StatList : new 140483678634432
+Lowering <class 'ir.Const'> 140483678643504
+StatList : new 140483678634336
+Lowering <class 'ir.BinExpr'> 140483678643888
+successfully navigated attr  expr  of <class 'ir.AssignStat'> 140483678644752
+StatList : new 140483678634096
+Lowering <class 'ir.AssignStat'> 140483678644752
+successfully navigated attr  step  of <class 'ir.ForStat'> 140483678644656
+StatList : new 140483680374976
+Lowering <class 'ir.ForStat'> 140483678644656
+navigating children of <class 'ir.PrintStat'> 140483678643312 1
+StatList : new 140483680375168
+Lowering <class 'ir.Var'> 140483678643216
+StatList : new 140483680375456
+Lowering <class 'ir.Var'> 140483678643216
+successfully navigated attr  expr  of <class 'ir.PrintStat'> 140483678643312
+StatList : new 140483680375552
+Lowering <class 'ir.PrintStat'> 140483678643312
+Cannot lower 140483678696496 <class 'ir.StatList'> 'StatList' object has no attribute 'lower'
+successfully navigated attr  body  of <class 'ir.Block'> 140483678643408
+Cannot lower 140483678643408 <class 'ir.Block'> 'Block' object has no attribute 'lower'
+successfully navigated attr  defs  of <class 'ir.Block'> 140483678643408
+navigating children of <class 'ir.StatList'> 140483678696496 3
+navigating children of <class 'ir.StatList'> 140483678645136 2
+navigating children of <class 'ir.StatList'> 140483678645184 1
+navigating children of <class 'ir.StatList'> 140483680374976 8
+navigating children of <class 'ir.StatList'> 140483678645616 2
+navigating children of <class 'ir.StatList'> 140483678645424 1
+navigating children of <class 'ir.StatList'> 140483678646240 3
+navigating children of <class 'ir.StatList'> 140483678645856 1
+navigating children of <class 'ir.StatList'> 140483678646144 1
+navigating children of <class 'ir.StatList'> 140483678649984 8
+navigating children of <class 'ir.StatList'> 140483678646672 2
+navigating children of <class 'ir.StatList'> 140483678646576 1
+navigating children of <class 'ir.StatList'> 140483678647248 3
+navigating children of <class 'ir.StatList'> 140483678646864 1
+navigating children of <class 'ir.StatList'> 140483678647152 1
+navigating children of <class 'ir.StatList'> 140483678642208 2
+navigating children of <class 'ir.StatList'> 140483678648208 2
+navigating children of <class 'ir.StatList'> 140483678647968 3
+navigating children of <class 'ir.StatList'> 140483678647536 1
+navigating children of <class 'ir.StatList'> 140483678647872 1
+navigating children of <class 'ir.StatList'> 140483678648832 2
+navigating children of <class 'ir.StatList'> 140483678648736 1
+navigating children of <class 'ir.StatList'> 140483678649552 2
+navigating children of <class 'ir.StatList'> 140483678649312 3
+navigating children of <class 'ir.StatList'> 140483678647584 1
+navigating children of <class 'ir.StatList'> 140483678649216 1
+navigating children of <class 'ir.StatList'> 140483678634096 2
+navigating children of <class 'ir.StatList'> 140483678634336 3
+navigating children of <class 'ir.StatList'> 140483678650080 1
+navigating children of <class 'ir.StatList'> 140483678634432 1
+navigating children of <class 'ir.StatList'> 140483680375552 2
+navigating children of <class 'ir.StatList'> 140483680375456 1
+successfully navigated attr  body  of <class 'ir.Block'> 140483678643408
+
+ <class 'ir.Block'> 140483678643408 {
+                                                                      <<<<<----- BUG? MISSING PARENT
+	defs: 	<class 'ir.DefinitionList'> 140483678696352 {
+	parent = 140483678643408
+	}
+	global_symtab: 	SymbolTable:
+	
+	body: 	<class 'ir.StatList'> 140483678696496 {
+	parent = 140483678643408
+		children:
+		<class 'ir.StatList'> 140483678645136 {
+		parent = 140483678696496
+			children:
+			<class 'ir.StatList'> 140483678645184 {
+			parent = 140483678645136
+				children:
+				reg int t0 <- 0
 			}
 			global int x <- reg int t0
 		}
-		<class 'ir.StatList'> 139633924258304 {
-		parent = 139633926068864
+		<class 'ir.StatList'> 140483680374976 {
+		parent = 140483678696496
 			children:
-			<class 'ir.StatList'> 139633924255568 {
-			parent = 139633924258304
+			<class 'ir.StatList'> 140483678645616 {
+			parent = 140483680374976
 				children:
-				<class 'ir.StatList'> 139633924255472 {
-				parent = 139633924255568
+				<class 'ir.StatList'> 140483678645424 {
+				parent = 140483678645616
 					children:
 					reg int t1 <- 0
 				}
-				global int i <- reg int t1
+				auto int tmp_variable_for_strip_mining <- reg int t1
 			}
-			label1: <class 'ir.StatList'> 139633924257104 {
-			parent = 139633924258304
+			label3: <class 'ir.StatList'> 140483678646240 {
+			parent = 140483680374976
 				children:
-				<class 'ir.StatList'> 139633924256672 {
-				parent = 139633924257104
+				<class 'ir.StatList'> 140483678645856 {
+				parent = 140483678646240
 					children:
-					reg int t5 <- global int i
+					reg int t2 <- auto int tmp_variable_for_strip_mining
 				}
-				<class 'ir.StatList'> 139633924256864 {
-				parent = 139633924257104
+				<class 'ir.StatList'> 140483678646144 {
+				parent = 140483678646240
 					children:
-					reg int t6 <- 10
+					reg int t3 <- 2
 				}
-				reg int32_t t7 <- reg int t5 lss reg int t6
+				reg int32_t t4 <- reg int t2 lss reg int t3
 			}
-			branch on not reg int32_t t7 to auto label label2
-			<class 'ir.StatList'> 139633924254224 {
-			parent = 139633924258304
+			branch on not reg int32_t t4 to auto label label4
+			<class 'ir.StatList'> 140483678649984 {
+			parent = 140483680374976
 				children:
-				<class 'ir.StatList'> 139633924257920 {
-				parent = 139633924254224
+				<class 'ir.StatList'> 140483678646672 {
+				parent = 140483678649984
 					children:
-					<class 'ir.StatList'> 139633924257824 {
-					parent = 139633924257920
+					<class 'ir.StatList'> 140483678646576 {
+					parent = 140483678646672
 						children:
-						<class 'ir.StatList'> 139633924257392 {
-						parent = 139633924257824
+						reg int t5 <- auto int tmp_variable_for_strip_mining
+					}
+					global int i <- reg int t5
+				}
+				label1: <class 'ir.StatList'> 140483678647248 {
+				parent = 140483678649984
+					children:
+					<class 'ir.StatList'> 140483678646864 {
+					parent = 140483678647248
+						children:
+						reg int t6 <- global int i
+					}
+					<class 'ir.StatList'> 140483678647152 {
+					parent = 140483678647248
+						children:
+						reg int t7 <- 3
+					}
+					reg int32_t t8 <- reg int t6 lss reg int t7
+				}
+				branch on not reg int32_t t8 to auto label label2
+				<class 'ir.StatList'> 140483678642208 {
+				parent = 140483678649984
+					children:
+					<class 'ir.StatList'> 140483678648208 {
+					parent = 140483678642208
+						children:
+						<class 'ir.StatList'> 140483678647968 {
+						parent = 140483678648208
 							children:
-							reg int t8 <- global int x
+							<class 'ir.StatList'> 140483678647536 {
+							parent = 140483678647968
+								children:
+								reg int t9 <- global int x
+							}
+							<class 'ir.StatList'> 140483678647872 {
+							parent = 140483678647968
+								children:
+								reg int t10 <- 1
+							}
+							reg int32_t t11 <- reg int t9 plus reg int t10
 						}
-						<class 'ir.StatList'> 139633924257584 {
-						parent = 139633924257824
+						global int x <- reg int32_t t11
+					}
+					<class 'ir.StatList'> 140483678648832 {
+					parent = 140483678642208
+						children:
+						<class 'ir.StatList'> 140483678648736 {
+						parent = 140483678648832
 							children:
-							reg int t9 <- 1
+							reg int t13 <- global int x
 						}
-						reg int32_t t10 <- reg int t8 plus reg int t9
+						print reg int t13
 					}
-					global int x <- reg int32_t t10
 				}
-			}
-			<class 'ir.StatList'> 139633924256384 {
-			parent = 139633924258304
-				children:
-				<class 'ir.StatList'> 139633924256288 {
-				parent = 139633924256384
+				<class 'ir.StatList'> 140483678649552 {
+				parent = 140483678649984
 					children:
-					<class 'ir.StatList'> 139633924255856 {
-					parent = 139633924256288
+					<class 'ir.StatList'> 140483678649312 {
+					parent = 140483678649552
 						children:
-						reg int t2 <- global int i
+						<class 'ir.StatList'> 140483678647584 {
+						parent = 140483678649312
+							children:
+							reg int t14 <- global int i
+						}
+						<class 'ir.StatList'> 140483678649216 {
+						parent = 140483678649312
+							children:
+							reg int t15 <- 1
+						}
+						reg int32_t t16 <- reg int t14 plus reg int t15
 					}
-					<class 'ir.StatList'> 139633924256048 {
-					parent = 139633924256288
-						children:
-						reg int t3 <- 1
-					}
-					reg int32_t t4 <- reg int t2 plus reg int t3
+					global int i <- reg int32_t t16
 				}
-				global int i <- reg int32_t t4
+				branch  to auto label label1
+				label2: <class 'ir.EmptyStat'> 140483678649792 {
+				parent = 140483678649984
+				}
+				<class 'ir.StatList'> 140483678644560 {
+				parent = 140483678649984
+				}
 			}
-			branch  to auto label label1
-			label2: <class 'ir.EmptyStat'> 139633924258160 {
-			parent = 139633924258304
+			<class 'ir.StatList'> 140483678634096 {
+			parent = 140483680374976
+				children:
+				<class 'ir.StatList'> 140483678634336 {
+				parent = 140483678634096
+					children:
+					<class 'ir.StatList'> 140483678650080 {
+					parent = 140483678634336
+						children:
+						reg int t17 <- auto int tmp_variable_for_strip_mining
+					}
+					<class 'ir.StatList'> 140483678634432 {
+					parent = 140483678634336
+						children:
+						reg int t18 <- 3
+					}
+					reg int32_t t19 <- reg int t17 plus reg int t18
+				}
+				auto int tmp_variable_for_strip_mining <- reg int32_t t19
+			}
+			branch  to auto label label3
+			label4: <class 'ir.EmptyStat'> 140483680374784 {
+			parent = 140483680374976
+			}
+			<class 'ir.StatList'> 140483678644992 {
+			parent = 140483680374976
 			}
 		}
-	}
-	defs: 	<class 'ir.DefinitionList'> 139633926068720 {
-	parent = 139633924254704
+		<class 'ir.StatList'> 140483680375552 {
+		parent = 140483678696496
+			children:
+			<class 'ir.StatList'> 140483680375456 {
+			parent = 140483680375552
+				children:
+				reg int t21 <- global int x
+			}
+			print reg int t21
+		}
 	}
 } 
 
-<class 'ir.LoadImmStat'> 139633924255280
-<class 'ir.StatList'> 139633924255232
-Flattening 139633924255232 into 139633924255328
-<class 'ir.StoreStat'> 139633924255088
-<class 'ir.StatList'> 139633924255328
-Flattening 139633924255328 into 139633926068864
-<class 'ir.LoadImmStat'> 139633924255424
-<class 'ir.StatList'> 139633924255472
-Flattening 139633924255472 into 139633924255568
-<class 'ir.StoreStat'> 139633924255616
-<class 'ir.StatList'> 139633924255568
-Flattening 139633924255568 into 139633924258304
-<class 'ir.LoadStat'> 139633924256528
-<class 'ir.StatList'> 139633924256672
-Flattening 139633924256672 into 139633924257104
-<class 'ir.LoadImmStat'> 139633924256816
-<class 'ir.StatList'> 139633924256864
-Flattening 139633924256864 into 139633924257104
-<class 'ir.BinStat'> 139633924256960
-<class 'ir.StatList'> 139633924257104
-Flattening 139633924257104 into 139633924258304
-<class 'ir.BranchStat'> 139633924258256
-<class 'ir.LoadStat'> 139633924257200
-<class 'ir.StatList'> 139633924257392
-Flattening 139633924257392 into 139633924257824
-<class 'ir.LoadImmStat'> 139633924257536
-<class 'ir.StatList'> 139633924257584
-Flattening 139633924257584 into 139633924257824
-<class 'ir.BinStat'> 139633924257680
-<class 'ir.StatList'> 139633924257824
-Flattening 139633924257824 into 139633924257920
-<class 'ir.StoreStat'> 139633924257968
-<class 'ir.StatList'> 139633924257920
-Flattening 139633924257920 into 139633924254224
-<class 'ir.StatList'> 139633924254224
-Flattening 139633924254224 into 139633924258304
-<class 'ir.LoadStat'> 139633924255712
-<class 'ir.StatList'> 139633924255856
-Flattening 139633924255856 into 139633924256288
-<class 'ir.LoadImmStat'> 139633924256000
-<class 'ir.StatList'> 139633924256048
-Flattening 139633924256048 into 139633924256288
-<class 'ir.BinStat'> 139633924256144
-<class 'ir.StatList'> 139633924256288
-Flattening 139633924256288 into 139633924256384
-<class 'ir.StoreStat'> 139633924256432
-<class 'ir.StatList'> 139633924256384
-Flattening 139633924256384 into 139633924258304
-<class 'ir.BranchStat'> 139633924258208
-<class 'ir.EmptyStat'> 139633924258160
-<class 'ir.StatList'> 139633924258304
-Flattening 139633924258304 into 139633926068864
-<class 'ir.StatList'> 139633926068864
-Not flattening 139633926068864 into 139633924254704 of type <class 'ir.Block'>
-<class 'ir.DefinitionList'> 139633926068720
-<class 'ir.Block'> 139633924254704
+<class 'ir.DefinitionList'> 140483678696352
+<class 'ir.LoadImmStat'> 140483678645088
+<class 'ir.StatList'> 140483678645184
+Flattening 140483678645184 into 140483678645136
+<class 'ir.StoreStat'> 140483678645328
+<class 'ir.StatList'> 140483678645136
+Flattening 140483678645136 into 140483678696496
+<class 'ir.LoadImmStat'> 140483678645472
+<class 'ir.StatList'> 140483678645424
+Flattening 140483678645424 into 140483678645616
+<class 'ir.StoreStat'> 140483678645712
+<class 'ir.StatList'> 140483678645616
+Flattening 140483678645616 into 140483680374976
+<class 'ir.LoadStat'> 140483678645808
+<class 'ir.StatList'> 140483678645856
+Flattening 140483678645856 into 140483678646240
+<class 'ir.LoadImmStat'> 140483678646096
+<class 'ir.StatList'> 140483678646144
+Flattening 140483678646144 into 140483678646240
+<class 'ir.BinStat'> 140483678646336
+<class 'ir.StatList'> 140483678646240
+Flattening 140483678646240 into 140483680374976
+<class 'ir.BranchStat'> 140483680374928
+<class 'ir.LoadStat'> 140483678646480
+<class 'ir.StatList'> 140483678646576
+Flattening 140483678646576 into 140483678646672
+<class 'ir.StoreStat'> 140483678646720
+<class 'ir.StatList'> 140483678646672
+Flattening 140483678646672 into 140483678649984
+<class 'ir.LoadStat'> 140483678646816
+<class 'ir.StatList'> 140483678646864
+Flattening 140483678646864 into 140483678647248
+<class 'ir.LoadImmStat'> 140483678647104
+<class 'ir.StatList'> 140483678647152
+Flattening 140483678647152 into 140483678647248
+<class 'ir.BinStat'> 140483678647344
+<class 'ir.StatList'> 140483678647248
+Flattening 140483678647248 into 140483678649984
+<class 'ir.BranchStat'> 140483678649936
+<class 'ir.LoadStat'> 140483678647488
+<class 'ir.StatList'> 140483678647536
+Flattening 140483678647536 into 140483678647968
+<class 'ir.LoadImmStat'> 140483678647824
+<class 'ir.StatList'> 140483678647872
+Flattening 140483678647872 into 140483678647968
+<class 'ir.BinStat'> 140483678648064
+<class 'ir.StatList'> 140483678647968
+Flattening 140483678647968 into 140483678648208
+<class 'ir.StoreStat'> 140483678648256
+<class 'ir.StatList'> 140483678648208
+Flattening 140483678648208 into 140483678642208
+<class 'ir.LoadStat'> 140483678648496
+<class 'ir.StatList'> 140483678648736
+Flattening 140483678648736 into 140483678648832
+<class 'ir.PrintCommand'> 140483678648592
+<class 'ir.StatList'> 140483678648832
+Flattening 140483678648832 into 140483678642208
+<class 'ir.StatList'> 140483678642208
+Flattening 140483678642208 into 140483678649984
+<class 'ir.LoadStat'> 140483678649024
+<class 'ir.StatList'> 140483678647584
+Flattening 140483678647584 into 140483678649312
+<class 'ir.LoadImmStat'> 140483678649168
+<class 'ir.StatList'> 140483678649216
+Flattening 140483678649216 into 140483678649312
+<class 'ir.BinStat'> 140483678649408
+<class 'ir.StatList'> 140483678649312
+Flattening 140483678649312 into 140483678649552
+<class 'ir.StoreStat'> 140483678649600
+<class 'ir.StatList'> 140483678649552
+Flattening 140483678649552 into 140483678649984
+<class 'ir.BranchStat'> 140483678649888
+<class 'ir.EmptyStat'> 140483678649792
+<class 'ir.StatList'> 140483678644560
+Flattening 140483678644560 into 140483678649984
+<class 'ir.StatList'> 140483678649984
+Flattening 140483678649984 into 140483680374976
+<class 'ir.LoadStat'> 140483678650176
+<class 'ir.StatList'> 140483678650080
+Flattening 140483678650080 into 140483678634336
+<class 'ir.LoadImmStat'> 140483678634480
+<class 'ir.StatList'> 140483678634432
+Flattening 140483678634432 into 140483678634336
+<class 'ir.BinStat'> 140483678634240
+<class 'ir.StatList'> 140483678634336
+Flattening 140483678634336 into 140483678634096
+<class 'ir.StoreStat'> 140483678634048
+<class 'ir.StatList'> 140483678634096
+Flattening 140483678634096 into 140483680374976
+<class 'ir.BranchStat'> 140483680374880
+<class 'ir.EmptyStat'> 140483680374784
+<class 'ir.StatList'> 140483678644992
+Flattening 140483678644992 into 140483680374976
+<class 'ir.StatList'> 140483680374976
+Flattening 140483680374976 into 140483678696496
+<class 'ir.LoadStat'> 140483680375216
+<class 'ir.StatList'> 140483680375456
+Flattening 140483680375456 into 140483680375552
+<class 'ir.PrintCommand'> 140483680375312
+<class 'ir.StatList'> 140483680375552
+Flattening 140483680375552 into 140483678696496
+<class 'ir.StatList'> 140483678696496
+Not flattening 140483678696496 into 140483678643408 of type <class 'ir.Block'>
+<class 'ir.Block'> 140483678643408
 
- <class 'ir.Block'> 139633924254704 {
+ <class 'ir.Block'> 140483678643408 {
                                                                       <<<<<----- BUG? MISSING PARENT
+	defs: 	<class 'ir.DefinitionList'> 140483678696352 {
+	parent = 140483678643408
+	}
 	global_symtab: 	SymbolTable:
 	
-	body: 	<class 'ir.StatList'> 139633926068864 {
-	parent = 139633924254704
+	body: 	<class 'ir.StatList'> 140483678696496 {
+	parent = 140483678643408
 		children:
-		reg int t0 <- 1
+		reg int t0 <- 0
 		global int x <- reg int t0
 		reg int t1 <- 0
-		global int i <- reg int t1
-		label1: <class 'ir.EmptyStat'> 139633926068816 {
-		parent = 139633926068864
+		auto int tmp_variable_for_strip_mining <- reg int t1
+		label3: <class 'ir.EmptyStat'> 140483678641776 {
+		parent = 140483678696496
 		}
-		reg int t5 <- global int i
-		reg int t6 <- 10
-		reg int32_t t7 <- reg int t5 lss reg int t6
-		branch on not reg int32_t t7 to auto label label2
-		reg int t8 <- global int x
-		reg int t9 <- 1
-		reg int32_t t10 <- reg int t8 plus reg int t9
-		global int x <- reg int32_t t10
-		reg int t2 <- global int i
-		reg int t3 <- 1
-		reg int32_t t4 <- reg int t2 plus reg int t3
-		global int i <- reg int32_t t4
+		reg int t2 <- auto int tmp_variable_for_strip_mining
+		reg int t3 <- 2
+		reg int32_t t4 <- reg int t2 lss reg int t3
+		branch on not reg int32_t t4 to auto label label4
+		reg int t5 <- auto int tmp_variable_for_strip_mining
+		global int i <- reg int t5
+		label1: <class 'ir.EmptyStat'> 140483678643696 {
+		parent = 140483678696496
+		}
+		reg int t6 <- global int i
+		reg int t7 <- 3
+		reg int32_t t8 <- reg int t6 lss reg int t7
+		branch on not reg int32_t t8 to auto label label2
+		reg int t9 <- global int x
+		reg int t10 <- 1
+		reg int32_t t11 <- reg int t9 plus reg int t10
+		global int x <- reg int32_t t11
+		reg int t13 <- global int x
+		print reg int t13
+		reg int t14 <- global int i
+		reg int t15 <- 1
+		reg int32_t t16 <- reg int t14 plus reg int t15
+		global int i <- reg int32_t t16
 		branch  to auto label label1
-		label2: <class 'ir.EmptyStat'> 139633924258160 {
-		parent = 139633926068864
+		label2: <class 'ir.EmptyStat'> 140483678649792 {
+		parent = 140483678696496
 		}
-	}
-	defs: 	<class 'ir.DefinitionList'> 139633926068720 {
-	parent = 139633924254704
+		reg int t17 <- auto int tmp_variable_for_strip_mining
+		reg int t18 <- 3
+		reg int32_t t19 <- reg int t17 plus reg int t18
+		auto int tmp_variable_for_strip_mining <- reg int32_t t19
+		branch  to auto label label3
+		label4: <class 'ir.EmptyStat'> 140483680374784 {
+		parent = 140483678696496
+		}
+		reg int t21 <- global int x
+		print reg int t21
 	}
 } 
 
-navigating children of <class 'ir.StatList'> 139633926068864 19
-successfully navigated attr  body  of <class 'ir.Block'> 139633924254704
-successfully navigated attr  defs  of <class 'ir.Block'> 139633924254704
+successfully navigated attr  defs  of <class 'ir.Block'> 140483678643408
+navigating children of <class 'ir.StatList'> 140483678696496 36
+successfully navigated attr  body  of <class 'ir.Block'> 140483678643408
 
 
 DATALAYOUT
 
 
 
- <class 'ir.Block'> 139633924254704 {
+ <class 'ir.Block'> 140483678643408 {
                                                                       <<<<<----- BUG? MISSING PARENT
+	defs: 	<class 'ir.DefinitionList'> 140483678696352 {
+	parent = 140483678643408
+	}
 	global_symtab: 	SymbolTable:
 	
-	body: 	<class 'ir.StatList'> 139633926068864 {
-	parent = 139633924254704
+	body: 	<class 'ir.StatList'> 140483678696496 {
+	parent = 140483678643408
 		children:
-		reg int t0 <- 1
+		reg int t0 <- 0
 		global int x; _g_x: def byte 4 <- reg int t0
 		reg int t1 <- 0
-		global int i; _g_i: def byte 4 <- reg int t1
-		label1: <class 'ir.EmptyStat'> 139633926068816 {
-		parent = 139633926068864
+		auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int t1
+		label3: <class 'ir.EmptyStat'> 140483678641776 {
+		parent = 140483678696496
 		}
-		reg int t5 <- global int i; _g_i: def byte 4
-		reg int t6 <- 10
-		reg int32_t t7 <- reg int t5 lss reg int t6
-		branch on not reg int32_t t7 to auto label label2
-		reg int t8 <- global int x; _g_x: def byte 4
-		reg int t9 <- 1
-		reg int32_t t10 <- reg int t8 plus reg int t9
-		global int x; _g_x: def byte 4 <- reg int32_t t10
-		reg int t2 <- global int i; _g_i: def byte 4
-		reg int t3 <- 1
-		reg int32_t t4 <- reg int t2 plus reg int t3
-		global int i; _g_i: def byte 4 <- reg int32_t t4
+		reg int t2 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4
+		reg int t3 <- 2
+		reg int32_t t4 <- reg int t2 lss reg int t3
+		branch on not reg int32_t t4 to auto label label4
+		reg int t5 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4
+		global int i; _g_i: def byte 4 <- reg int t5
+		label1: <class 'ir.EmptyStat'> 140483678643696 {
+		parent = 140483678696496
+		}
+		reg int t6 <- global int i; _g_i: def byte 4
+		reg int t7 <- 3
+		reg int32_t t8 <- reg int t6 lss reg int t7
+		branch on not reg int32_t t8 to auto label label2
+		reg int t9 <- global int x; _g_x: def byte 4
+		reg int t10 <- 1
+		reg int32_t t11 <- reg int t9 plus reg int t10
+		global int x; _g_x: def byte 4 <- reg int32_t t11
+		reg int t13 <- global int x; _g_x: def byte 4
+		print reg int t13
+		reg int t14 <- global int i; _g_i: def byte 4
+		reg int t15 <- 1
+		reg int32_t t16 <- reg int t14 plus reg int t15
+		global int i; _g_i: def byte 4 <- reg int32_t t16
 		branch  to auto label label1
-		label2: <class 'ir.EmptyStat'> 139633924258160 {
-		parent = 139633926068864
+		label2: <class 'ir.EmptyStat'> 140483678649792 {
+		parent = 140483678696496
 		}
-	}
-	defs: 	<class 'ir.DefinitionList'> 139633926068720 {
-	parent = 139633924254704
+		reg int t17 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4
+		reg int t18 <- 3
+		reg int32_t t19 <- reg int t17 plus reg int t18
+		auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int32_t t19
+		branch  to auto label label3
+		label4: <class 'ir.EmptyStat'> 140483680374784 {
+		parent = 140483678696496
+		}
+		reg int t21 <- global int x; _g_x: def byte 4
+		print reg int t21
 	}
 } 
 
-navigating children of <class 'ir.StatList'> 139633926068864 19
-successfully navigated attr  body  of <class 'ir.Block'> 139633924254704
-successfully navigated attr  defs  of <class 'ir.Block'> 139633924254704
+successfully navigated attr  defs  of <class 'ir.Block'> 140483678643408
+navigating children of <class 'ir.StatList'> 140483678696496 36
+successfully navigated attr  body  of <class 'ir.Block'> 140483678643408
 Liveness sets
-139633924254032 [label="BB139633924254032{\nreg int t0 <- 1\nglobal int x; _g_x: def byte 4 <- reg int t0\nreg int t1 <- 0\nglobal int i; _g_i: def byte 4 <- reg int t1}"];
-139633924254032 -> 139633924254080 [label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
+140483678642304 [label="BB140483678642304{\nreg int t0 <- 0\nglobal int x; _g_x: def byte 4 <- reg int t0\nreg int t1 <- 0\nauto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int t1}"];
+140483678642304 -> 140483678644080 [label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
 
 gen: set()
-kill: {reg int t0, global int i; _g_i: def byte 4, reg int t1, global int x; _g_x: def byte 4}
+kill: {global int x; _g_x: def byte 4, reg int t1, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t0}
 live_in: set()
 live_out: set()
-139633924254080 [label="BB139633924254080{\n[auto label label1]\nlabel1: <class 'ir.EmptyStat'> 139633926068816 {
-parent = 139633926068864
-}\nreg int t5 <- global int i; _g_i: def byte 4\nreg int t6 <- 10\nreg int32_t t7 <- reg int t5 lss reg int t6\nbranch on not reg int32_t t7 to auto label label2}"];
-139633924254080 -> 139633924253744 [label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
-139633924254080 -> 139633924254128 [style=dashed,label="set()"];
+140483678644080 [label="BB140483678644080{\n[auto label label3]\nlabel3: <class 'ir.EmptyStat'> 140483678641776 {
+parent = 140483678696496
+}\nreg int t2 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4\nreg int t3 <- 2\nreg int32_t t4 <- reg int t2 lss reg int t3\nbranch on not reg int32_t t4 to auto label label4}"];
+140483678644080 -> 140483678642400 [label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
+140483678644080 -> 140483678642496 [style=dashed,label="{global int x; _g_x: def byte 4}"];
+
+gen: {auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+kill: {reg int t3, reg int32_t t4, reg int t2}
+live_in: {global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+live_out: {auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4}
+140483678642400 [label="BB140483678642400{\nreg int t5 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4\nglobal int i; _g_i: def byte 4 <- reg int t5}"];
+140483678642400 -> 140483678642544 [label="{auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
+
+gen: {auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+kill: {global int i; _g_i: def byte 4, reg int t5}
+live_in: {global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+live_out: {auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4}
+140483678642544 [label="BB140483678642544{\n[auto label label1]\nlabel1: <class 'ir.EmptyStat'> 140483678643696 {
+parent = 140483678696496
+}\nreg int t6 <- global int i; _g_i: def byte 4\nreg int t7 <- 3\nreg int32_t t8 <- reg int t6 lss reg int t7\nbranch on not reg int32_t t8 to auto label label2}"];
+140483678642544 -> 140483678642448 [label="{auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
+140483678642544 -> 140483678642640 [style=dashed,label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
 
 gen: {global int i; _g_i: def byte 4}
-kill: {reg int t6, reg int32_t t7, reg int t5}
-live_in: {global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}
-live_out: {global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}
-139633924253744 [label="BB139633924253744{\nreg int t8 <- global int x; _g_x: def byte 4\nreg int t9 <- 1\nreg int32_t t10 <- reg int t8 plus reg int t9\nglobal int x; _g_x: def byte 4 <- reg int32_t t10\nreg int t2 <- global int i; _g_i: def byte 4\nreg int t3 <- 1\nreg int32_t t4 <- reg int t2 plus reg int t3\nglobal int i; _g_i: def byte 4 <- reg int32_t t4\nbranch  to auto label label1}"];
-139633924253744 -> 139633924254080 [style=dashed,label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
+kill: {reg int t7, reg int32_t t8, reg int t6}
+live_in: {auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}
+live_out: {auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}
+140483678642448 [label="BB140483678642448{\nreg int t9 <- global int x; _g_x: def byte 4\nreg int t10 <- 1\nreg int32_t t11 <- reg int t9 plus reg int t10\nglobal int x; _g_x: def byte 4 <- reg int32_t t11\nreg int t13 <- global int x; _g_x: def byte 4\nprint reg int t13\nreg int t14 <- global int i; _g_i: def byte 4\nreg int t15 <- 1\nreg int32_t t16 <- reg int t14 plus reg int t15\nglobal int i; _g_i: def byte 4 <- reg int32_t t16\nbranch  to auto label label1}"];
+140483678642448 -> 140483678642544 [style=dashed,label="{auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
 
-gen: {global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}
-kill: {reg int t3, reg int32_t t4, global int i; _g_i: def byte 4, reg int32_t t10, reg int t8, reg int t2, reg int t9, global int x; _g_x: def byte 4}
-live_in: {global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}
-live_out: {global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}
-139633924254128 [label="BB139633924254128{\n[auto label label2]\nlabel2: <class 'ir.EmptyStat'> 139633924258160 {
-parent = 139633926068864
-}}"];
-139633924254128 -> exit139633925671280 [label="set()"];
+gen: {global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}
+kill: {global int i; _g_i: def byte 4, reg int32_t t16, global int x; _g_x: def byte 4, reg int t14, reg int t15, reg int32_t t11, reg int t13, reg int t9, reg int t10}
+live_in: {auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}
+live_out: {auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}
+140483678642640 [label="BB140483678642640{\n[auto label label2]\nlabel2: <class 'ir.EmptyStat'> 140483678649792 {
+parent = 140483678696496
+}\nreg int t17 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4\nreg int t18 <- 3\nreg int32_t t19 <- reg int t17 plus reg int t18\nauto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int32_t t19\nbranch  to auto label label3}"];
+140483678642640 -> 140483678644080 [style=dashed,label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
 
-gen: set()
-kill: set()
-live_in: set()
-live_out: set()
+gen: {auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+kill: {reg int t17, reg int t18, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int32_t t19}
+live_in: {global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+live_out: {global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+140483678642496 [label="BB140483678642496{\n[auto label label4]\nlabel4: <class 'ir.EmptyStat'> 140483680374784 {
+parent = 140483678696496
+}\nreg int t21 <- global int x; _g_x: def byte 4\nprint reg int t21}"];
+140483678642496 -> exit140483680144176 [label="{global int x; _g_x: def byte 4}"];
+
+gen: {global int x; _g_x: def byte 4}
+kill: {reg int t21}
+live_in: {global int x; _g_x: def byte 4}
+live_out: {global int x; _g_x: def byte 4}
 
 Instruction liveness
 BASIC BLOCK:
-139633924254032 [label="BB139633924254032{\nreg int t0 <- 1\nglobal int x; _g_x: def byte 4 <- reg int t0\nreg int t1 <- 0\nglobal int i; _g_i: def byte 4 <- reg int t1}"];
-139633924254032 -> 139633924254080 [label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
+140483678642304 [label="BB140483678642304{\nreg int t0 <- 0\nglobal int x; _g_x: def byte 4 <- reg int t0\nreg int t1 <- 0\nauto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int t1}"];
+140483678642304 -> 140483678644080 [label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
 
 
-inst=reg int t0 <- 1                                                                  live_in=set()                                                                                                                                                                                                    live_out={reg int t0}                                                                    
+inst=reg int t0 <- 0                                                                  live_in=set()                                                                                                                                                                                                    live_out={reg int t0}                                                                    
 inst=global int x; _g_x: def byte 4 <- reg int t0                                     live_in={reg int t0}                                                                                                                                                                                             live_out={global int x; _g_x: def byte 4}                                                
-inst=reg int t1 <- 0                                                                  live_in={global int x; _g_x: def byte 4}                                                                                                                                                                         live_out={reg int t1, global int x; _g_x: def byte 4}                                    
-inst=global int i; _g_i: def byte 4 <- reg int t1                                     live_in={reg int t1, global int x; _g_x: def byte 4}                                                                                                                                                             live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                
+inst=reg int t1 <- 0                                                                  live_in={global int x; _g_x: def byte 4}                                                                                                                                                                         live_out={global int x; _g_x: def byte 4, reg int t1}                                    
+inst=auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int t1 live_in={global int x; _g_x: def byte 4, reg int t1}                                                                                                                                                             live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
 BASIC BLOCK:
-139633924254080 [label="BB139633924254080{\n[auto label label1]\nlabel1: <class 'ir.EmptyStat'> 139633926068816 {
-parent = 139633926068864
-}\nreg int t5 <- global int i; _g_i: def byte 4\nreg int t6 <- 10\nreg int32_t t7 <- reg int t5 lss reg int t6\nbranch on not reg int32_t t7 to auto label label2}"];
-139633924254080 -> 139633924253744 [label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
-139633924254080 -> 139633924254128 [style=dashed,label="set()"];
+140483678644080 [label="BB140483678644080{\n[auto label label3]\nlabel3: <class 'ir.EmptyStat'> 140483678641776 {
+parent = 140483678696496
+}\nreg int t2 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4\nreg int t3 <- 2\nreg int32_t t4 <- reg int t2 lss reg int t3\nbranch on not reg int32_t t4 to auto label label4}"];
+140483678644080 -> 140483678642400 [label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
+140483678644080 -> 140483678642496 [style=dashed,label="{global int x; _g_x: def byte 4}"];
 
 
-inst=label1: <class 'ir.EmptyStat'> 139633926068816 {
-parent = 139633926068864
-}      live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                                                                                                                                         live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                
-inst=reg int t5 <- global int i; _g_i: def byte 4                                     live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                                                                                                                                         live_out={global int i; _g_i: def byte 4, reg int t5, global int x; _g_x: def byte 4}    
-inst=reg int t6 <- 10                                                                 live_in={global int i; _g_i: def byte 4, reg int t5, global int x; _g_x: def byte 4}                                                                                                                             live_out={reg int t6, global int i; _g_i: def byte 4, reg int t5, global int x; _g_x: def byte 4}
-inst=reg int32_t t7 <- reg int t5 lss reg int t6                                      live_in={reg int t6, global int i; _g_i: def byte 4, reg int t5, global int x; _g_x: def byte 4}                                                                                                                 live_out={reg int32_t t7, global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}
-inst=branch on not reg int32_t t7 to auto label label2                                live_in={reg int32_t t7, global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                                                                                                                         live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                
+inst=label3: <class 'ir.EmptyStat'> 140483678641776 {
+parent = 140483678696496
+}      live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                                                   live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=reg int t2 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                                                   live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t2}
+inst=reg int t3 <- 2                                                                  live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t2}                                                                       live_out={global int x; _g_x: def byte 4, reg int t3, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t2}
+inst=reg int32_t t4 <- reg int t2 lss reg int t3                                      live_in={global int x; _g_x: def byte 4, reg int t3, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t2}                                                           live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int32_t t4}
+inst=branch on not reg int32_t t4 to auto label label4                                live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int32_t t4}                                                                   live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
 BASIC BLOCK:
-139633924253744 [label="BB139633924253744{\nreg int t8 <- global int x; _g_x: def byte 4\nreg int t9 <- 1\nreg int32_t t10 <- reg int t8 plus reg int t9\nglobal int x; _g_x: def byte 4 <- reg int32_t t10\nreg int t2 <- global int i; _g_i: def byte 4\nreg int t3 <- 1\nreg int32_t t4 <- reg int t2 plus reg int t3\nglobal int i; _g_i: def byte 4 <- reg int32_t t4\nbranch  to auto label label1}"];
-139633924253744 -> 139633924254080 [style=dashed,label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
+140483678642400 [label="BB140483678642400{\nreg int t5 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4\nglobal int i; _g_i: def byte 4 <- reg int t5}"];
+140483678642400 -> 140483678642544 [label="{auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
 
 
-inst=reg int t8 <- global int x; _g_x: def byte 4                                     live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                                                                                                                                         live_out={reg int t8, global int i; _g_i: def byte 4}                                    
-inst=reg int t9 <- 1                                                                  live_in={reg int t8, global int i; _g_i: def byte 4}                                                                                                                                                             live_out={reg int t8, global int i; _g_i: def byte 4, reg int t9}                        
-inst=reg int32_t t10 <- reg int t8 plus reg int t9                                    live_in={reg int t8, global int i; _g_i: def byte 4, reg int t9}                                                                                                                                                 live_out={global int i; _g_i: def byte 4, reg int32_t t10}                               
-inst=global int x; _g_x: def byte 4 <- reg int32_t t10                                live_in={global int i; _g_i: def byte 4, reg int32_t t10}                                                                                                                                                        live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                
-inst=reg int t2 <- global int i; _g_i: def byte 4                                     live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                                                                                                                                         live_out={reg int t2, global int x; _g_x: def byte 4}                                    
-inst=reg int t3 <- 1                                                                  live_in={reg int t2, global int x; _g_x: def byte 4}                                                                                                                                                             live_out={reg int t2, reg int t3, global int x; _g_x: def byte 4}                        
-inst=reg int32_t t4 <- reg int t2 plus reg int t3                                     live_in={reg int t2, reg int t3, global int x; _g_x: def byte 4}                                                                                                                                                 live_out={global int x; _g_x: def byte 4, reg int32_t t4}                                
-inst=global int i; _g_i: def byte 4 <- reg int32_t t4                                 live_in={global int x; _g_x: def byte 4, reg int32_t t4}                                                                                                                                                         live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                
-inst=branch  to auto label label1                                                     live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                                                                                                                                         live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}                
+inst=reg int t5 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                                                   live_out={auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, reg int t5}
+inst=global int i; _g_i: def byte 4 <- reg int t5                                     live_in={auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, reg int t5}                                                                       live_out={auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}
 BASIC BLOCK:
-139633924254128 [label="BB139633924254128{\n[auto label label2]\nlabel2: <class 'ir.EmptyStat'> 139633924258160 {
-parent = 139633926068864
-}}"];
-139633924254128 -> exit139633925671280 [label="set()"];
+140483678642544 [label="BB140483678642544{\n[auto label label1]\nlabel1: <class 'ir.EmptyStat'> 140483678643696 {
+parent = 140483678696496
+}\nreg int t6 <- global int i; _g_i: def byte 4\nreg int t7 <- 3\nreg int32_t t8 <- reg int t6 lss reg int t7\nbranch on not reg int32_t t8 to auto label label2}"];
+140483678642544 -> 140483678642448 [label="{auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
+140483678642544 -> 140483678642640 [style=dashed,label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
 
 
-inst=label2: <class 'ir.EmptyStat'> 139633924258160 {
-parent = 139633926068864
-}      live_in=set()                                                                                                                                                                                                    live_out=set()                                                                           
+inst=label1: <class 'ir.EmptyStat'> 140483678643696 {
+parent = 140483678696496
+}      live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                   live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=reg int t6 <- global int i; _g_i: def byte 4                                     live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                   live_out={reg int t6, global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=reg int t7 <- 3                                                                  live_in={reg int t6, global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                       live_out={reg int t7, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, reg int t6}
+inst=reg int32_t t8 <- reg int t6 lss reg int t7                                      live_in={reg int t7, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, reg int t6}                           live_out={global int i; _g_i: def byte 4, reg int32_t t8, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=branch on not reg int32_t t8 to auto label label2                                live_in={global int i; _g_i: def byte 4, reg int32_t t8, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                   live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+BASIC BLOCK:
+140483678642448 [label="BB140483678642448{\nreg int t9 <- global int x; _g_x: def byte 4\nreg int t10 <- 1\nreg int32_t t11 <- reg int t9 plus reg int t10\nglobal int x; _g_x: def byte 4 <- reg int32_t t11\nreg int t13 <- global int x; _g_x: def byte 4\nprint reg int t13\nreg int t14 <- global int i; _g_i: def byte 4\nreg int t15 <- 1\nreg int32_t t16 <- reg int t14 plus reg int t15\nglobal int i; _g_i: def byte 4 <- reg int32_t t16\nbranch  to auto label label1}"];
+140483678642448 -> 140483678642544 [style=dashed,label="{auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
+
+
+inst=reg int t9 <- global int x; _g_x: def byte 4                                     live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                   live_out={global int i; _g_i: def byte 4, reg int t9, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=reg int t10 <- 1                                                                 live_in={global int i; _g_i: def byte 4, reg int t9, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                                       live_out={global int i; _g_i: def byte 4, reg int t10, reg int t9, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=reg int32_t t11 <- reg int t9 plus reg int t10                                   live_in={global int i; _g_i: def byte 4, reg int t10, reg int t9, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                          live_out={global int i; _g_i: def byte 4, reg int32_t t11, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=global int x; _g_x: def byte 4 <- reg int32_t t11                                live_in={global int i; _g_i: def byte 4, reg int32_t t11, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                                  live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=reg int t13 <- global int x; _g_x: def byte 4                                    live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                   live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t13}
+inst=print reg int t13                                                                live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t13}                                      live_out={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=reg int t14 <- global int i; _g_i: def byte 4                                    live_in={global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                   live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t14}
+inst=reg int t15 <- 1                                                                 live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t14}                                                                      live_out={global int x; _g_x: def byte 4, reg int t15, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t14}
+inst=reg int32_t t16 <- reg int t14 plus reg int t15                                  live_in={global int x; _g_x: def byte 4, reg int t15, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int t14}                                                         live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int32_t t16}
+inst=global int i; _g_i: def byte 4 <- reg int32_t t16                                live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, reg int32_t t16}                                                                  live_out={auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}
+inst=branch  to auto label label1                                                     live_in={auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}                                                   live_out={auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}
+BASIC BLOCK:
+140483678642640 [label="BB140483678642640{\n[auto label label2]\nlabel2: <class 'ir.EmptyStat'> 140483678649792 {
+parent = 140483678696496
+}\nreg int t17 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4\nreg int t18 <- 3\nreg int32_t t19 <- reg int t17 plus reg int t18\nauto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int32_t t19\nbranch  to auto label label3}"];
+140483678642640 -> 140483678644080 [style=dashed,label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
+
+
+inst=label2: <class 'ir.EmptyStat'> 140483678649792 {
+parent = 140483678696496
+}      live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                                                   live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=reg int t17 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                                                   live_out={global int x; _g_x: def byte 4, reg int t17}                                   
+inst=reg int t18 <- 3                                                                 live_in={global int x; _g_x: def byte 4, reg int t17}                                                                                                                                                            live_out={global int x; _g_x: def byte 4, reg int t18, reg int t17}                      
+inst=reg int32_t t19 <- reg int t17 plus reg int t18                                  live_in={global int x; _g_x: def byte 4, reg int t18, reg int t17}                                                                                                                                               live_out={global int x; _g_x: def byte 4, reg int32_t t19}                               
+inst=auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int32_t t19 live_in={global int x; _g_x: def byte 4, reg int32_t t19}                                                                                                                                                        live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+inst=branch  to auto label label3                                                     live_in={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}                                                                                   live_out={global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}
+BASIC BLOCK:
+140483678642496 [label="BB140483678642496{\n[auto label label4]\nlabel4: <class 'ir.EmptyStat'> 140483680374784 {
+parent = 140483678696496
+}\nreg int t21 <- global int x; _g_x: def byte 4\nprint reg int t21}"];
+140483678642496 -> exit140483680144176 [label="{global int x; _g_x: def byte 4}"];
+
+
+inst=label4: <class 'ir.EmptyStat'> 140483680374784 {
+parent = 140483678696496
+}      live_in={global int x; _g_x: def byte 4}                                                                                                                                                                         live_out={global int x; _g_x: def byte 4}                                                
+inst=reg int t21 <- global int x; _g_x: def byte 4                                    live_in={global int x; _g_x: def byte 4}                                                                                                                                                                         live_out={reg int t21}                                                                   
+inst=print reg int t21                                                                live_in={reg int t21}                                                                                                                                                                                            live_out=set()                                                                           
 
 
 REGALLOC
 
 
 LIVENESS INTERVALS:
-[{'var': reg int t0, 'interv': range(0, 1)}, {'var': reg int t1, 'interv': range(2, 3)}, {'var': reg int t5, 'interv': range(5, 7)}, {'var': reg int t6, 'interv': range(6, 7)}, {'var': reg int32_t t7, 'interv': range(7, 8)}, {'var': reg int t8, 'interv': range(9, 11)}, {'var': reg int t9, 'interv': range(10, 11)}, {'var': reg int32_t t10, 'interv': range(11, 12)}, {'var': reg int t2, 'interv': range(13, 15)}, {'var': reg int t3, 'interv': range(14, 15)}, {'var': reg int32_t t4, 'interv': range(15, 16)}]
-vartoreg = {reg int t0: 0, reg int t1: 1, reg int t5: 2, reg int t6: 3, reg int32_t t7: 4, reg int t8: 5, reg int t9: 6, reg int32_t t10: 7, reg int t2: 8, reg int t3: 0, reg int32_t t4: 1}
+[{'var': reg int t0, 'interv': range(0, 1)}, {'var': reg int t1, 'interv': range(2, 3)}, {'var': reg int t2, 'interv': range(5, 7)}, {'var': reg int t3, 'interv': range(6, 7)}, {'var': reg int32_t t4, 'interv': range(7, 8)}, {'var': reg int t5, 'interv': range(9, 10)}, {'var': reg int t6, 'interv': range(12, 14)}, {'var': reg int t7, 'interv': range(13, 14)}, {'var': reg int32_t t8, 'interv': range(14, 15)}, {'var': reg int t9, 'interv': range(16, 18)}, {'var': reg int t10, 'interv': range(17, 18)}, {'var': reg int32_t t11, 'interv': range(18, 19)}, {'var': reg int t13, 'interv': range(20, 21)}, {'var': reg int t14, 'interv': range(22, 24)}, {'var': reg int t15, 'interv': range(23, 24)}, {'var': reg int32_t t16, 'interv': range(24, 25)}, {'var': reg int t17, 'interv': range(28, 30)}, {'var': reg int t18, 'interv': range(29, 30)}, {'var': reg int32_t t19, 'interv': range(30, 31)}, {'var': reg int t21, 'interv': range(34, 35)}]
+vartoreg = {reg int t0: 0, reg int t1: 1, reg int t2: 2, reg int t3: 3, reg int32_t t4: 4, reg int t5: 5, reg int t6: 6, reg int t7: 7, reg int32_t t8: 8, reg int t9: 0, reg int t10: 1, reg int32_t t11: 0, reg int t13: 2, reg int t14: 3, reg int t15: 4, reg int32_t t16: 5, reg int t17: 6, reg int t18: 7, reg int32_t t19: 8, reg int t21: 1}
 
 
 CODEGEN
@@ -752,58 +1478,108 @@ CODEGEN
 @ block
 	.comm _g_x, 4
 	.comm _g_i, 4
+	.comm _g_tmp_variable_for_strip_mining, 4
 	.global __pl0_start
 __pl0_start:
 	push {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r11, sp
 	sub sp, sp, #0
-	@ irnode 139633926068864 type <class 'ir.StatList'>
-	mov r0, #1
+	@ irnode 140483678696496 type <class 'ir.StatList'>
+	mov r0, #0
 	ldr r12, .const0
 	str r0, [r12]
 	mov r1, #0
 	ldr r12, .const1
 	str r1, [r12]
-label1:
+label3:
 	@ emptystat
 	ldr r12, .const2
 	ldr r2, [r12]
-	mov r3, #10
+	mov r3, #2
 	cmp r2, r3
 	movlt r4, #1
 	movge r4, #0
 	tst r4, r4
-	beq label2
+	beq label4
 	ldr r12, .const3
 	ldr r5, [r12]
-	mov r6, #1
-	add r7, r5, r6
 	ldr r12, .const4
-	str r7, [r12]
+	str r5, [r12]
+label1:
+	@ emptystat
 	ldr r12, .const5
-	ldr r8, [r12]
-	mov r0, #1
-	add r1, r8, r0
+	ldr r6, [r12]
+	mov r7, #3
+	cmp r6, r7
+	movlt r8, #1
+	movge r8, #0
+	tst r8, r8
+	beq label2
 	ldr r12, .const6
-	str r1, [r12]
+	ldr r0, [r12]
+	mov r1, #1
+	add r0, r0, r1
+	ldr r12, .const7
+	str r0, [r12]
+	ldr r12, .const8
+	ldr r2, [r12]
+	push {r0, r1, r2, r3}
+	mov r0, r2
+	bl __pl0_print
+	pop {r0, r1, r2, r3}
+	ldr r12, .const9
+	ldr r3, [r12]
+	mov r4, #1
+	add r5, r3, r4
+	ldr r12, .const10
+	str r5, [r12]
 	b label1
 label2:
 	@ emptystat
+	ldr r12, .const11
+	ldr r6, [r12]
+	mov r7, #3
+	add r8, r6, r7
+	ldr r12, .const12
+	str r8, [r12]
+	b label3
+label4:
+	@ emptystat
+	ldr r12, .const13
+	ldr r1, [r12]
+	push {r0, r1, r2, r3}
+	mov r0, r1
+	bl __pl0_print
+	pop {r0, r1, r2, r3}
 	mov sp, r11
 	pop {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	bx lr
 .const0:
 	.word _g_x
 .const1:
-	.word _g_i
+	.word _g_tmp_variable_for_strip_mining
 .const2:
-	.word _g_i
+	.word _g_tmp_variable_for_strip_mining
 .const3:
-	.word _g_x
+	.word _g_tmp_variable_for_strip_mining
 .const4:
-	.word _g_x
+	.word _g_i
 .const5:
 	.word _g_i
 .const6:
+	.word _g_x
+.const7:
+	.word _g_x
+.const8:
+	.word _g_x
+.const9:
 	.word _g_i
+.const10:
+	.word _g_i
+.const11:
+	.word _g_tmp_variable_for_strip_mining
+.const12:
+	.word _g_tmp_variable_for_strip_mining
+.const13:
+	.word _g_x
 

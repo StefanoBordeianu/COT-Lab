@@ -262,6 +262,14 @@ def storestat_codegen(self, regalloc):
         dest = '[' + regalloc.get_register_for_variable(self.dest) + ']'
     else:
         ai = self.dest.allocinfo
+        try:
+            ai.symname
+        except Exception:
+            print('ERROR HERE')
+            print(self)
+            print(self.dest)
+            print(ai)
+            return
         if type(ai) is LocalSymbolLayout:
             dest = '[' + get_register_string(REG_FP) + ', #' + ai.symname + ']'
         else:

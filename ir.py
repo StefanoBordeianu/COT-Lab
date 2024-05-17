@@ -402,7 +402,7 @@ class UnExpr(Expr):
         return self.children[1].is_const()
 
     def get_const_value(self):
-        if(self.children[0] is 'minus'):
+        if(self.children[0] == 'minus'):
             return (-self.children[1].get_const_value())
         return self.children[1].get_const_value()
 
@@ -522,6 +522,9 @@ class ForStat(Stat):  # incomplete
         var = Var(var=target, symtab=symtab)
         cond = BinExpr(children=[op, var, cond_expr], symtab=symtab)
 
+        self.saved_var = var
+        self.saved_symb = target
+
         self.cond = cond
         self.step = step
         self.body = body
@@ -532,7 +535,7 @@ class ForStat(Stat):  # incomplete
         self.body.parent = self
         self.unroll_remainder_statlist = StatList(self,[],self.symtab)
 
-        self.strip_mine(2)
+        #self.strip_mine(2)
 
     # def symb_modified_in_body(self,symb):
     #     statements = self.body.descendants()
@@ -612,6 +615,9 @@ class ForStat(Stat):  # incomplete
         self.body.parent = self 
 
     def strip_mine(self, strip_factor=None):
+
+        print('\nSTARTING STRIP MINING\n')    
+
         #verify that the condition is constant
         cond_operand = self.cond.get_operands()[1]
         is_constant = cond_operand.is_const()
@@ -644,22 +650,61 @@ class ForStat(Stat):  # incomplete
 
 
 
-        #create external for loop 
-        
+        ###creating outer for loop
         #create new induction variable
-        alloct='auto'
+        alloct= 'auto'
         name = 'tmp_variable_for_strip_mining'
         type = TYPENAMES['int']
         new_symb = Symbol(name, type, alloct=alloct)
-        self.symtab.append(Symbol(name, type, alloct=alloct))
+        self.symtab.append(new_symb)
+
+        #find the parent block and append the variable in their symtab
+        p = self.parent
+        while True:
+            if(isinstance(p,Block)):
+                #append
+                p.symtab.append(new_symb)
+                break
+            else:
+                p = p.parent
+
+
+
         outer_ind_var = Var(var=new_symb, symtab=self.symtab)
+        outer_ind_var_for_inner_assign = Var(var=new_symb, symtab=self.symtab)
+        strip_factor_const = Const(parent=None,value=strip_factor,symtab=self.symtab)
+        inner_assign = BinExpr(None,['times',strip_factor_const,outer_ind_var_for_inner_assign],self.symtab)
+        print('NEW SYMBOL CREATED')
 
-        #create new constant for condition and step
-        outer_step_const = Const(self.parent,strip_factor,self.symtab)
+        #create new constants for the end condition and step
+        outer_step_const = Const(parent=None,value=1,symtab=self.symtab)
+        outer_end_const = Const(parent=None,value=(end_value//strip_factor),symtab=self.symtab)
+        
+        outer_step_expr = BinExpr(None,['plus',outer_ind_var,outer_step_const],self.symtab)
+        outer_start_const = Const(parent=None,value=0,symtab=self.symtab)
+        print('OUTER EXPRS CREATED')
 
+        ###Creating inner loop
+        #create new expressions for the inner loop
+        inner_end_const = Const(parent=None,value=strip_factor,symtab=self.symtab)
+        inner_step_expr = self.step.expr
+        inner_start_exp = outer_ind_var_for_inner_assign
+        print('INNER EXPRS CREATED')
 
-        outer_step_exp = BinExpr(self.parent,['plus',outer_ind_var,outer_step_const])
-        #outer_cond = BinExpr(children=['lss', var, cond_expr], symtab=symtab)
+        inner_for = ForStat(target=self.saved_symb, op='lss', start_exp=inner_start_exp, 
+            cond_expr=inner_end_const,step_exp=inner_step_expr,body=self.body,symtab=self.symtab)
+        print('INNER FOR CREATED')
+
+        outer_for = ForStat(target=new_symb, parent=self.parent, op='lss', start_exp=outer_start_const, 
+            cond_expr=outer_end_const,step_exp=outer_step_expr,body=inner_for,symtab=self.symtab)
+        print('OUTER FOR CREATED')
+        inner_for.parent = outer_for
+        
+        print('OUTER FOR INCOMINGs')
+        print(outer_for)
+
+        self.parent.replace(self, outer_for)
+
 
 
     def lower(self):

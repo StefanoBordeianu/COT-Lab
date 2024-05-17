@@ -1,17 +1,28 @@
 digraph G {
-139676188058304 [label="BB139676188058304{\nreg int t0 <- 0\nglobal int x; _g_x: def byte 4 <- reg int t0\nreg int t1 <- 0\nglobal int i; _g_i: def byte 4 <- reg int t1}"];
-139676188058304 -> 139676188057632 [label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
-139676188057632 [label="BB139676188057632{\n[auto label label1]\nlabel1: <class 'ir.EmptyStat'> 139676188081312 {
-parent = 139676188081408
-}\nreg int t10 <- global int i; _g_i: def byte 4\nreg int t11 <- 4\nreg int32_t t12 <- reg int t10 lss reg int t11\nbranch on not reg int32_t t12 to auto label label2}"];
-139676188057632 -> 139676188058928 [label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
-139676188057632 -> 139676188058688 [style=dashed,label="set()"];
-139676188058928 [label="BB139676188058928{\nreg int t2 <- global int x; _g_x: def byte 4\nreg int t3 <- 1\nreg int32_t t4 <- reg int t2 plus reg int t3\nglobal int x; _g_x: def byte 4 <- reg int32_t t4\nreg int t6 <- global int x; _g_x: def byte 4\nprint reg int t6\nreg int t7 <- global int i; _g_i: def byte 4\nreg int t8 <- 1\nreg int32_t t9 <- reg int t7 plus reg int t8\nglobal int i; _g_i: def byte 4 <- reg int32_t t9\nbranch  to auto label label1}"];
-139676188058928 -> 139676188057632 [style=dashed,label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4}"];
-139676188058688 [label="BB139676188058688{\n[auto label label2]\nlabel2: <class 'ir.EmptyStat'> 139676188052880 {
-parent = 139676188081408
+140279757151472 [label="BB140279757151472{\nreg int t0 <- 0\nglobal int x; _g_x: def byte 4 <- reg int t0\nreg int t16 <- 0\nauto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int t16}"];
+140279757151472 -> 140279757149264 [label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
+140279757149264 [label="BB140279757149264{\n[auto label label3]\nlabel3: <class 'ir.EmptyStat'> 140279757148112 {
+parent = 140279758430816
+}\nreg int t13 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4\nreg int t14 <- 3\nreg int32_t t15 <- reg int t13 lss reg int t14\nbranch on not reg int32_t t15 to auto label label4}"];
+140279757149264 -> 140279757151040 [label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
+140279757149264 -> 140279757149216 [style=dashed,label="set()"];
+140279757151040 [label="BB140279757151040{\nreg int t9 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4\nglobal int i; _g_i: def byte 4 <- reg int t9}"];
+140279757151040 -> 140279757149120 [label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
+140279757149120 [label="BB140279757149120{\n[auto label label1]\nlabel1: <class 'ir.EmptyStat'> 140279757149744 {
+parent = 140279758430816
+}\nreg int t6 <- global int i; _g_i: def byte 4\nreg int t7 <- 2\nreg int32_t t8 <- reg int t6 lss reg int t7\nbranch on not reg int32_t t8 to auto label label2}"];
+140279757149120 -> 140279757151184 [label="{auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4, global int x; _g_x: def byte 4, global int i; _g_i: def byte 4}"];
+140279757149120 -> 140279757151280 [style=dashed,label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
+140279757151184 [label="BB140279757151184{\nreg int t1 <- global int x; _g_x: def byte 4\nreg int t2 <- 1\nreg int32_t t3 <- reg int t1 plus reg int t2\nglobal int x; _g_x: def byte 4 <- reg int32_t t3\nreg int t5 <- global int i; _g_i: def byte 4\nprint reg int t5\nreg int t10 <- global int i; _g_i: def byte 4\nreg int t11 <- 1\nreg int32_t t12 <- reg int t10 plus reg int t11\nglobal int i; _g_i: def byte 4 <- reg int32_t t12\nbranch  to auto label label1}"];
+140279757151184 -> 140279757149120 [style=dashed,label="{global int i; _g_i: def byte 4, global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
+140279757151280 [label="BB140279757151280{\n[auto label label2]\nlabel2: <class 'ir.EmptyStat'> 140279757155936 {
+parent = 140279758430816
+}\nreg int t17 <- auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4\nreg int t18 <- 1\nreg int32_t t19 <- reg int t17 plus reg int t18\nauto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4 <- reg int32_t t19\nbranch  to auto label label3}"];
+140279757151280 -> 140279757149264 [style=dashed,label="{global int x; _g_x: def byte 4, auto int tmp_variable_for_strip_mining; _g_tmp_variable_for_strip_mining: def byte 4}"];
+140279757149216 [label="BB140279757149216{\n[auto label label4]\nlabel4: <class 'ir.EmptyStat'> 140279757158144 {
+parent = 140279758430816
 }}"];
-139676188058688 -> exit139676189575984 [label="set()"];
+140279757149216 -> exit140279758457456 [label="set()"];
 main [shape=box];
-main -> 139676188058304 [label="set()"];
+main -> 140279757151472 [label="set()"];
 }
