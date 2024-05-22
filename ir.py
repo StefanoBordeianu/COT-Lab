@@ -186,7 +186,7 @@ class IRNode:  # abstract
             pass
 
         attrs = {'body', 'cond', 'value', 'thenpart', 'elsepart', 'symbol', 'call', 'step', 'expr', 'target', 'defs',
-                 'global_symtab', 'local_symtab', 'offset','start_assign'} & set(dir(self))
+                 'global_symtab', 'local_symtab', 'offset','start_assign','unroll_remainder_statlist'} & set(dir(self))
 
         res = repr(type(self)) + ' ' + repr(id(self)) + ' {\n'
         if self.parent is not None:
@@ -518,6 +518,7 @@ class ForStat(Stat):  # incomplete
         super().__init__(parent, [], symtab)
 
         start_assign = AssignStat(target=target, expr=start_exp, symtab=symtab)
+        self.start_assign = start_assign
         step = AssignStat(target=target, expr=step_exp, symtab=symtab)
         var = Var(var=target, symtab=symtab)
         cond = BinExpr(children=[op, var, cond_expr], symtab=symtab)
@@ -528,12 +529,13 @@ class ForStat(Stat):  # incomplete
         self.cond = cond
         self.step = step
         self.body = body
-        self.start_assign = start_assign
+        
         self.start_assign.parent = self
         self.cond.parent = self
         self.step.parent = self
         self.body.parent = self
         self.unroll_remainder_statlist = StatList(self,[],self.symtab)
+        self.remainder_for = None
 
         #self.strip_mine(2)
 
@@ -672,9 +674,13 @@ class ForStat(Stat):  # incomplete
 
         outer_ind_var = Var(var=new_symb, symtab=self.symtab)
         outer_ind_var_for_inner_assign = Var(var=new_symb, symtab=self.symtab)
+        outer_ind_var_for_inner_cond = Var(var=new_symb, symtab=self.symtab)
+        
         strip_factor_const = Const(parent=None,value=strip_factor,symtab=self.symtab)
+        strip_factor_const2 = Const(parent=None,value=strip_factor,symtab=self.symtab)
+        strip_factor_const3 = Const(parent=None,value=strip_factor,symtab=self.symtab)
+        
         inner_assign = BinExpr(None,['times',strip_factor_const,outer_ind_var_for_inner_assign],self.symtab)
-        print('NEW SYMBOL CREATED')
 
         #create new constants for the end condition and step
         outer_step_const = Const(parent=None,value=1,symtab=self.symtab)
@@ -686,22 +692,38 @@ class ForStat(Stat):  # incomplete
 
         ###Creating inner loop
         #create new expressions for the inner loop
-        inner_end_const = Const(parent=None,value=strip_factor,symtab=self.symtab)
+        inner_start_exp = BinExpr(None,['times',outer_ind_var_for_inner_assign,strip_factor_const],self.symtab) 
+        bin_for_cond = BinExpr(None,['times',outer_ind_var_for_inner_cond,strip_factor_const2],self.symtab)
+        inner_end_expr = BinExpr(None,['plus',bin_for_cond,strip_factor_const3],self.symtab)
         inner_step_expr = self.step.expr
-        inner_start_exp = outer_ind_var_for_inner_assign
         print('INNER EXPRS CREATED')
 
         inner_for = ForStat(target=self.saved_symb, op='lss', start_exp=inner_start_exp, 
-            cond_expr=inner_end_const,step_exp=inner_step_expr,body=self.body,symtab=self.symtab)
+            cond_expr=inner_end_expr,step_exp=inner_step_expr,body=self.body,symtab=self.symtab)
         print('INNER FOR CREATED')
 
         outer_for = ForStat(target=new_symb, parent=self.parent, op='lss', start_exp=outer_start_const, 
             cond_expr=outer_end_const,step_exp=outer_step_expr,body=inner_for,symtab=self.symtab)
+
+        # rem_for = ForStat(target=self.saved_symb,parent=outer_for,op='lss',body=self.body,symtab=self.symtab)
+        # rem_for.cond = self.cond
+        # rem_for.step = self.step
+        # outer.remainder_for = rem_for
         print('OUTER FOR CREATED')
         inner_for.parent = outer_for
         
         print('OUTER FOR INCOMINGs')
         print(outer_for)
+
+        # #multiply body
+        # remainder = end_value%strip_factor
+        # print('REMAINDER %d' %remainder)
+        # body_copy = self.body
+        # remainder_body = StatList(self,[],self.symtab)
+        # for i in range(remainder):
+        #     remainder_body.append(body_copy)
+        #     #remainder_body.append(self.step)
+        # outer_for.unroll_remainder_statlist = remainder_body
 
         self.parent.replace(self, outer_for)
 
