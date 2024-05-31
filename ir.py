@@ -186,7 +186,8 @@ class IRNode:  # abstract
             pass
 
         attrs = {'body', 'cond', 'value', 'thenpart', 'elsepart', 'symbol', 'call', 'step', 'expr', 'target', 'defs',
-                 'global_symtab', 'local_symtab', 'offset','start_assign','unroll_remainder_statlist'} & set(dir(self))
+                 'global_symtab', 'local_symtab', 'offset','start_assign',
+                 'unroll_remainder_statlist','remainder_for'} & set(dir(self))
 
         res = repr(type(self)) + ' ' + repr(id(self)) + ' {\n'
         if self.parent is not None:
@@ -221,7 +222,8 @@ class IRNode:  # abstract
 
     def navigate(self, action):
         attrs = {'body', 'cond', 'value', 'thenpart', 'elsepart', 'symbol', 'call', 'step', 'expr', 'target', 'defs',
-                 'global_symtab', 'local_symtab', 'offset', 'start_assign','unroll_remainder_statlist'} & set(dir(self))
+                 'global_symtab', 'local_symtab', 'offset', 'start_assign',
+                 'unroll_remainder_statlist','remainder_for'} & set(dir(self))
         if 'children' in dir(self) and len(self.children):
             print('navigating children of', type(self), id(self), len(self.children))
             for node in self.children:
@@ -243,7 +245,8 @@ class IRNode:  # abstract
             self.children[self.children.index(old)] = new
             return True
         attrs = {'body', 'cond', 'value', 'thenpart', 'elsepart', 'symbol', 'call', 'step', 'expr', 'target', 'defs',
-                 'global_symtab', 'local_symtab', 'offset','start_assign'} & set(dir(self))
+                 'global_symtab', 'local_symtab', 'offset','start_assign',
+                 'unroll_remainder_statlist','remainder_for'} & set(dir(self))
         for d in attrs:
             try:
                 if getattr(self, d) == old:
@@ -535,7 +538,7 @@ class ForStat(Stat):  # incomplete
         self.step.parent = self
         self.body.parent = self
         self.unroll_remainder_statlist = StatList(self,[],self.symtab)
-        self.remainder_for = None
+        self.remainder_for = StatList(self,[],self.symtab)
 
         #self.strip_mine(2)
 
@@ -705,6 +708,32 @@ class ForStat(Stat):  # incomplete
         outer_for = ForStat(target=new_symb, parent=self.parent, op='lss', start_exp=outer_start_const, 
             cond_expr=outer_end_const,step_exp=outer_step_expr,body=inner_for,symtab=self.symtab)
 
+
+        remainder = end_value%strip_factor
+        print(remainder)
+        if remainder != 0:
+            rem_var_assign = Var(var=self.saved_symb, symtab=self.symtab)
+            rem_var_step = Var(var=self.saved_symb, symtab=self.symtab)
+            rem_var_cond = Var(var=self.saved_symb, symtab=self.symtab)
+            rem_assign_exp_const = Const(parent=None,value=0,symtab=self.symtab)
+            rem_step_const = Const(parent=None,value=1,symtab=self.symtab)
+            original_end = self.cond.get_operands()[1].value
+
+            rem_end_const = Const(parent=None,value=original_end,symtab=self.symtab)
+            rem_step_expr = BinExpr(None,['plus',rem_var_step,rem_step_const],self.symtab)
+            rem_start_const = Const(parent=None,value=0,symtab=self.symtab)
+            rem_assign_exp =  BinExpr(None,['plus',rem_var_assign,rem_assign_exp_const],self.symtab)
+
+            rem_for = ForStat(target=self.saved_symb,op='lss',start_exp=rem_var_assign,
+                cond_expr=rem_end_const,step_exp=rem_step_expr,body=self.body,symtab=self.symtab)
+
+            outer_for.remainder_for = rem_for
+            rem_for.parent = outer_for
+            print('REMAINDER FOR APPENDED\n')
+            print(self.remainder_for)
+
+
+
         # rem_for = ForStat(target=self.saved_symb,parent=outer_for,op='lss',body=self.body,symtab=self.symtab)
         # rem_for.cond = self.cond
         # rem_for.step = self.step
@@ -726,6 +755,8 @@ class ForStat(Stat):  # incomplete
         # outer_for.unroll_remainder_statlist = remainder_body
 
         self.parent.replace(self, outer_for)
+        print("REPLACED")
+        print(outer_for.parent)
 
 
 
@@ -737,7 +768,7 @@ class ForStat(Stat):  # incomplete
         self.cond.set_label(entry_label)
         branch = BranchStat(None,self.cond.destination(),exit_label,self.symtab,negcond=True)
         loop = BranchStat(None,None, entry_label, self.symtab)
-        stat_list = StatList(self.parent, [self.start_assign, self.cond, branch, self.body, self.step, loop, exit_stat,self.unroll_remainder_statlist], self.symtab)
+        stat_list = StatList(self.parent, [self.start_assign, self.cond, branch, self.body, self.step, loop, exit_stat,self.unroll_remainder_statlist,self.remainder_for], self.symtab)
         return self.parent.replace(self, stat_list)
         
 

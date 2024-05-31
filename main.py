@@ -26,7 +26,7 @@ def compile_program(text):
         print(type(n), id(n))
             
         if(isinstance(n,ir.ForStat)):
-           n.strip_mine(4)
+           n.strip_mine(5)
 
 
     node_list = get_node_list(res)
