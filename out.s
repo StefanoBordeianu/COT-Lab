@@ -10,7 +10,7 @@ __pl0_start:
 	push {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r11, sp
 	sub sp, sp, #0
-	@ irnode 139925114860592 type <class 'ir.StatList'>
+	@ irnode 140604510806720 type <class 'ir.StatList'>
 	mov r4, #0
 	ldr r12, .const0
 	str r4, [r12]
@@ -21,7 +21,7 @@ label5:
 	@ emptystat
 	ldr r12, .const2
 	ldr r6, [r12]
-	mov r7, #1
+	mov r7, #0
 	cmp r6, r7
 	movlt r8, #1
 	movge r8, #0
@@ -48,7 +48,7 @@ label1:
 	movge r7, #0
 	tst r7, r7
 	beq label2
-	@ irnode 139925114789872 type <class 'ir.StatList'>
+	@ irnode 140604509525264 type <class 'ir.StatList'>
 	ldr r12, .const7
 	ldr r0, [r12]
 	mov r1, #1
@@ -87,7 +87,7 @@ label3:
 	@ emptystat
 	ldr r12, .const16
 	ldr r4, [r12]
-	mov r6, #8
+	mov r6, #3
 	cmp r4, r6
 	movlt r7, #1
 	movge r7, #0
